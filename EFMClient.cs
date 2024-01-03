@@ -1,44 +1,23 @@
 ﻿using ExampleEFMClient.EFM;
-using System.Linq;
+using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel;
 
-namespace ExampleEFMClient
-{
-  public class EFMClient
-  {
-    #region Private Properties
+
+namespace ExampleEFMClient {
+  public class EFMClient {
 
     private X509Certificate2 MessageSigningCertificate { get; set; }
 
-    #endregion
-
-    #region Constructors
-
-    public EFMClient(X509Certificate2 certificate)
-    {
-      this.MessageSigningCertificate = certificate;
+    public EFMClient(string pfxFilePath, string privateKeyPassword) {
+      this.MessageSigningCertificate = new X509Certificate2(pfxFilePath, privateKeyPassword);
 
       // Uncomment this line to ignore server certificate errors
       // This is useful if running through a proxy (like Fiddler) to capture the message content
-      //ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+      ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
     }
 
-    public EFMClient(string pfxFilePath, string privateKeyPassword)
-      : this(LoadCertificateFromFile(pfxFilePath, privateKeyPassword))
-    {
-    }
-
-    public EFMClient(string subjectName)
-      : this(LoadCertificateFromStore(subjectName))
-    {
-    }
-
-    #endregion
-
-    #region EFM Web Service Calls
-
-    public AuthenticateResponseType AuthenticateUser(AuthenticateRequestType request)
-    {
+    public AuthenticateResponseType AuthenticateUser(AuthenticateRequestType request) {
       EfmUserServiceClient userService = this.CreateUserService();
       userService.Open();
       AuthenticateResponseType response = userService.AuthenticateUser(request);
@@ -46,43 +25,26 @@ namespace ExampleEFMClient
       return response;
     }
 
-    #endregion
+    protected EfmUserServiceClient CreateUserService() {
+      // Create and configure the binding
+      var binding = new BasicHttpBinding(BasicHttpSecurityMode.TransportWithMessageCredential);
+      binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.Certificate;
+      binding.MessageEncoding = WSMessageEncoding.Mtom;
+      
 
-    #region Private Methods - Create EFM Web Service Client
+      // Define the endpoint address
+      var endpointAddress = new EndpointAddress("https://maryland-stage.tylertech.cloud/EFM/EFMUserService.svc");
 
-    protected EfmUserServiceClient CreateUserService()
-    {
-      EfmUserServiceClient client = new EfmUserServiceClient();
+      // Create the client instance
+      var client = new EfmUserServiceClient(binding, endpointAddress);
+
+      // Set the client credentials (certificate)
       client.ClientCredentials.ClientCertificate.Certificate = this.MessageSigningCertificate;
+
+      // set client loggers
+      client.Endpoint.EndpointBehaviors.Add(new MyEndpointBehavior());
+
       return client;
     }
-
-    #endregion
-
-    #region Private Methods - Load Certificate
-
-    private static X509Certificate2 LoadCertificateFromStore(string subjectName)
-    {
-      // Open the Certificates (Local Computer) --> Personal certificate store
-      X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-      store.Open(OpenFlags.ReadOnly | OpenFlags.OpenExistingOnly);
-
-      // Find a particular certificate by Subject Name
-      X509Certificate2 certificate = store.Certificates.Find(X509FindType.FindBySubjectName, subjectName, false).OfType<X509Certificate2>().FirstOrDefault();
-
-      // Close the certificate store
-      store.Close();
-
-      return certificate;
-    }
-
-    private static X509Certificate2 LoadCertificateFromFile(string pfxFilePath, string privateKeyPassword)
-    {
-      // Load the certificate from a file, specifying the password
-      X509Certificate2 certificate = new X509Certificate2(pfxFilePath, privateKeyPassword);
-      return certificate;
-    }
-
-    #endregion
   }
 }
