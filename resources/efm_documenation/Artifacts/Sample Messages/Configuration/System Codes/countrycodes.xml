@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>CountryCode</ShortName>
+    <LongName>CountryCode</LongName>
+    <Version>06B1C095A0583BCFDA90C943D2B45E9D54A8B35C26EB34C26E833F6E06A65FBA4F84CD9447861D57DDD0FED5EB3D09EB741814F331C4BA7E58251D2CD54D079E</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:CountryCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:CountryCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>US</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>United States</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>MX</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Mexico</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>IN</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>India</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>DA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Denmark</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>CA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Canada</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BH</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Belize</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AS</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Australia</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Aruba</SimpleValue>
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AC</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Antigua And Barbuda</SimpleValue>
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feesresponse:GetFeesCalculationResponseMessage xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:feesresponse="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/feesresponse" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/feesresponse ../../../schema/feesresponse.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingAssembly</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>https://efilingmanager.com:8000</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt>
+		<nc:OrganizationIdentification>
+			<!-- Identifier that maps to a node -->
+			<nc:IdentificationID>harris:dc</nc:IdentificationID>
+		</nc:OrganizationIdentification>
+	</j:CaseCourt>
+	<!-- DocumentPostDate is required and is the datetime for the response -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2021-05-24T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<cbrn:MessageStatus cbrn:systemSimulatedIndicator="false">
+		<cbrn:SystemEventDateTime>2017-01-07T13:47:42.0Z</cbrn:SystemEventDateTime>
+		<cbrn:SystemOperatingModeCode>Ops</cbrn:SystemOperatingModeCode>
+		<cbrn:CredentialsAuthenticatedCode>Authenticated</cbrn:CredentialsAuthenticatedCode>
+		<cbrn:MessageStatusCode>Success</cbrn:MessageStatusCode>
+		<cbrn:MessageHandlingError>
+			<cbrn:ErrorCodeText>0</cbrn:ErrorCodeText>
+		</cbrn:MessageHandlingError>
+		<cbrn:ResendRequestIndicator>false</cbrn:ResendRequestIndicator>
+	</cbrn:MessageStatus>
+	<!-- Court fees associated with case initiation -->
+	<cac:AllowanceCharge>
+		<cbc:ID/>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Case Initiation Fee</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">50.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- Court fees associated with the addition of a party -->
+	<cac:AllowanceCharge>
+		<!-- Party type code id -->
+		<cbc:ID>528</cbc:ID>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Party Fee</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">5.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- Court fees associated with the filing, the ID indicates the filing code id -->
+	<cac:AllowanceCharge>
+		<cbc:ID>645</cbc:ID>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Filing Fee</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">4.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- Court fees for any optional services selected by the filer, the ID indicates the filing code id for the associated services -->
+	<cac:AllowanceCharge>
+		<cbc:ID>645</cbc:ID>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Optional Service Fee</cbc:AllowanceChargeReason>
+		<cbc:MultiplierFactorNumeric>10</cbc:MultiplierFactorNumeric>
+		<cbc:Amount currencyID="USD">100.00</cbc:Amount>
+		<cbc:PerUnitAmount currencyID="USD">10.00</cbc:PerUnitAmount>
+	</cac:AllowanceCharge>
+	<!-- EFM fees -->
+	<cac:AllowanceCharge>
+		<cbc:ID/>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Total Service Fees</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">1.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- Tax on the EFM fees -->
+	<cac:AllowanceCharge>
+		<cbc:ID/>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Total Service Tax Fees</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">0.06</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- Payment processing fees -->
+	<cac:AllowanceCharge>
+		<cbc:ID/>
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Convenience Fee</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">2.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- EFSP fees -->
+	<cac:AllowanceCharge>
+		<cbc:ID />
+		<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Total Provider Service Fees</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- Tax on the EFSP fees -->
+	<cac:AllowanceCharge>
+		<cbc:ID />
+		<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Total Provider Tax Fees</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- The county cost recovery fee for e-filing -->
+	<cac:AllowanceCharge>
+		<cbc:ID />
+		<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+		<cbc:AllowanceChargeReason>Total Court Service Fees</cbc:AllowanceChargeReason>
+		<cbc:Amount currencyID="USD">1.00</cbc:Amount>
+	</cac:AllowanceCharge>
+	<!-- The total amount of fees calculated -->
+	<feesresponse:FeesCalculationAmount>
+		<nc:Amount>16.27</nc:Amount>
+	</feesresponse:FeesCalculationAmount>
+</feesresponse:GetFeesCalculationResponseMessage>

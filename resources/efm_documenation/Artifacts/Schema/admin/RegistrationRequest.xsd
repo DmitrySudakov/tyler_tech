@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="urn:tyler:efm:services:schema:RegistrationRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:common="urn:tyler:efm:services:schema:Common" xmlns:request="urn:tyler:efm:services:schema:BaseRequest" targetNamespace="urn:tyler:efm:services:schema:RegistrationRequest" elementFormDefault="qualified" id="RegistrationRequest">
+	<xs:import namespace="urn:tyler:efm:services:schema:Common" schemaLocation="Common.xsd"/>
+	<xs:import namespace="urn:tyler:efm:services:schema:BaseRequest" schemaLocation="BaseRequest.xsd"/>
+	<xs:complexType name="RegistrationRequestType">
+		<xs:complexContent>
+			<xs:extension base="request:BaseRequestType">
+				<xs:sequence>
+					<xs:element name="RegistrationType" type="common:RegistrationType"/>
+					<xs:element name="Email" type="common:REQUIRED_STRING"/>
+					<xs:element name="FirstName" type="common:REQUIRED_STRING"/>
+					<xs:element name="MiddleName" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="LastName" type="common:REQUIRED_STRING"/>
+					<xs:element name="Password" type="common:REQUIRED_STRING" nillable="true" minOccurs="0"/>
+					<xs:element name="PasswordQuestion" nillable="true" minOccurs="0">
+						<xs:simpleType>
+							<xs:restriction base="common:REQUIRED_STRING">
+								<xs:maxLength value="256"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="PasswordAnswer" type="common:REQUIRED_STRING" nillable="true" minOccurs="0"/>
+					<xs:element name="StreetAddressLine1" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="StreetAddressLine2" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="City" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="StateCode" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="ZipCode" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="CountryCode" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="FirmName" type="xs:string" nillable="true" minOccurs="0"/>
+					<xs:element name="PhoneNumber" type="xs:string" nillable="true" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="RegisterUserRequest" type="RegistrationRequestType"/>
+</xs:schema>

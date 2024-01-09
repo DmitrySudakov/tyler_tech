@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filinglistresponse:GetFilingListResponseMessage xmlns:structures="http://release.niem.gov/niem/structures/4.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:common="urn:tyler:ecf:v5.0:extensions:common" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:filinglistresponse="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/filinglistresponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/filinglistresponse ../../../schema/filinglistresponse.xsd urn:tyler:ecf:v5.0:extensions:common ../../../schema/extension/common.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingAssembly</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>https://efilingmanager.com:8000</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt/>
+	<!-- DocumentPostDate is required and is the datetime for the response -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<cbrn:MessageStatus cbrn:systemSimulatedIndicator="false">
+		<cbrn:SystemEventDateTime>2017-01-07T13:47:42.0Z</cbrn:SystemEventDateTime>
+		<cbrn:SystemOperatingModeCode>Ops</cbrn:SystemOperatingModeCode>
+		<cbrn:CredentialsAuthenticatedCode>Authenticated</cbrn:CredentialsAuthenticatedCode>
+		<cbrn:MessageStatusCode>Success</cbrn:MessageStatusCode>
+		<cbrn:MessageHandlingError>
+			<cbrn:ErrorCodeText>0</cbrn:ErrorCodeText>
+		</cbrn:MessageHandlingError>
+		<cbrn:ResendRequestIndicator>false</cbrn:ResendRequestIndicator>
+	</cbrn:MessageStatus>
+	<ecf:MatchingFiling xmlns:structures="http://release.niem.gov/niem/structures/4.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- DocumentFiledDate contains the date/time filed -->
+	<nc:DocumentFiledDate>
+		<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentFiledDate>
+	<!-- The envelope identifier -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>3121</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>envelopeID</nc:IdentificationCategoryDescriptionText>
+	</nc:DocumentIdentification>
+	<!-- The filing identifier -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>f4ee599a-c9f8-4e77-9937-65ae754a3494</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>filingID</nc:IdentificationCategoryDescriptionText>
+	</nc:DocumentIdentification>
+	<ecf:DocumentAugmentation>
+		<ecf:DocumentFiler>
+			<nc:EntityPerson>
+				<!-- The filer's name -->
+				<nc:PersonName>
+					<nc:PersonFullName>John Stevens</nc:PersonFullName>
+				</nc:PersonName>
+				<ecf:PersonAugmentation>
+					<!-- The filer's user id -->
+					<ecf:ParticipantID>
+						<nc:IdentificationID>b4ee599a-c9f8-4e77-9937-65ae754a3494</nc:IdentificationID>
+					</ecf:ParticipantID>
+				</ecf:PersonAugmentation>
+			</nc:EntityPerson>
+		</ecf:DocumentFiler>
+	</ecf:DocumentAugmentation>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>https://efilingmanager.com:8000</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt>
+		<!-- The court identifier for the filing -->
+		<nc:OrganizationIdentification>
+			<nc:IdentificationID>harris:dc</nc:IdentificationID>
+		</nc:OrganizationIdentification>
+	</j:CaseCourt>
+	<!-- DocumentPostDate contains the date/time submitted -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>	
+		
+	<!-- The filing status for the filing -->
+	<ecf:FilingStatus>
+		<common:FilingStatusAugmentation>
+			<!-- Grace period for an envelope to allow the filer to retain their original docket date if they resubmit within the grace period -->
+			<common:GracePeriodExpirationDate>
+				<nc:DateTime>2010-06-06T14:20:47.0Z</nc:DateTime>
+			</common:GracePeriodExpirationDate>
+		</common:FilingStatusAugmentation>
+		<ecf:FilingReviewStatusCode>accepted</ecf:FilingReviewStatusCode>
+	</ecf:FilingStatus>
+	<!-- Represents the filing -->
+	<ecf:LeadDocumentReview>
+		<!-- DocumentReviewDisposition is required by schema but unused -->
+		<ecf:DocumentReviewDisposition/>
+		<ecf:ReviewedDocument>
+			<!-- DocumentIdentification is required by schema but unused -->
+			<nc:DocumentIdentification/>
+			<!-- The filing description -->
+			<nc:DocumentTitleText>Some filing description</nc:DocumentTitleText>
+			<ecf:DocumentAugmentation>
+				<!-- The filing code id -->
+				<ecf:RegisterActionDescriptionCode>411</ecf:RegisterActionDescriptionCode>
+			</ecf:DocumentAugmentation>
+			<common:DocumentAugmentation>
+				<!-- The filing type -->
+				<common:FilingAction>EFile</common:FilingAction>
+				<!-- The filer reference number -->
+				<common:FilerReferenceNumber>Some filer reference number</common:FilerReferenceNumber>
+				<!-- The deferred until date on the envelope -->
+				<common:DeferredUntilDate>
+					<nc:DateTime>2022-04-06T17:00:55.523</nc:DateTime>
+				</common:DeferredUntilDate>
+			</common:DocumentAugmentation>
+		</ecf:ReviewedDocument>
+	</ecf:LeadDocumentReview>
+	<nc:Case xmlns:criminal="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/criminal" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/criminal ../../../schema/criminal.xsd">
+		<!-- The case title -->
+		<nc:CaseTitleText>Jane Doe vs. John Doe </nc:CaseTitleText>
+		<j:CaseAugmentation>
+			<j:CaseCourt>
+				<!-- The court location -->
+				<nc:OrganizationIdentification>
+					<nc:IdentificationID>harris:dc</nc:IdentificationID>
+				</nc:OrganizationIdentification>
+			</j:CaseCourt>
+			<!-- The case judge -->
+			<j:CaseJudge>
+				<nc:RoleOfPerson>
+					<nc:PersonName>
+						<nc:PersonFullName>Judge Judy</nc:PersonFullName>
+					</nc:PersonName>
+				</nc:RoleOfPerson>
+			</j:CaseJudge>
+			<!-- The filing attorney -->
+			<j:CaseOfficial>
+				<nc:RoleOfPerson>
+					<nc:PersonName>
+						<nc:PersonFullName>Jane, Doe, JD</nc:PersonFullName>
+					</nc:PersonName>
+				</nc:RoleOfPerson>
+			</j:CaseOfficial>
+		</j:CaseAugmentation>
+		<ecf:CaseAugmentation>
+			<!-- The case category code id -->
+			<ecf:CaseCategoryCode>7</ecf:CaseCategoryCode>	
+			<!-- The EFM case identifier -->		
+			<ecf:CaseTrackingID>
+				<nc:IdentificationID>d4ee599a-c9f8-4e77-9937-65ae754a3494</nc:IdentificationID>
+			</ecf:CaseTrackingID>
+			<!-- The case type code id -->
+			<ecf:CaseTypeCode>545</ecf:CaseTypeCode>
+			<!-- The case number -->
+			<j:CaseNumberText>CV-2000-10</j:CaseNumberText>						
+		</ecf:CaseAugmentation>		
+	</nc:Case>
+	</ecf:MatchingFiling>
+</filinglistresponse:GetFilingListResponseMessage>

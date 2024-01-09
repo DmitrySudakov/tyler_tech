@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UserListResponse"
+    targetNamespace="urn:tyler:efm:services:schema:UserListResponse"
+    elementFormDefault="qualified"
+    xmlns="urn:tyler:efm:services:schema:UserListResponse"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:common="urn:tyler:efm:services:schema:Common"
+    xmlns:base="urn:tyler:efm:services:schema:BaseResponse"
+>
+  <xs:import namespace="urn:tyler:efm:services:schema:Common" schemaLocation="Common.xsd"/>
+  <xs:import namespace="urn:tyler:efm:services:schema:BaseResponse" schemaLocation="BaseResponse.xsd"/>
+
+  <xs:complexType name="UserListResponseType">
+    <xs:complexContent>
+      <xs:extension base="base:BaseResponseType">
+        <xs:sequence>
+          <xs:element name="User" type="common:UserType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="UserListResponse" type="UserListResponseType"/>
+  
+</xs:schema>

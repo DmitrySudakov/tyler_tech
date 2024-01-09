@@ -1,0 +1,2 @@
+
+This API accepts no inputs.

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetServiceContactResponse xmlns="urn:tyler:efm:services:schema:GetServiceContactResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:common="urn:tyler:efm:services:schema:Common" xsi:schemaLocation="urn:tyler:efm:services:schema:GetServiceContactResponse ..\..\..\Schema\Admin\GetServiceContactResponse.xsd">
+	<common:ServiceContact ServiceContactID="B260A15A-6B51-4CE3-92B5-BF2012540B82" FirmID="1d343764-75b2-4755-a048-851d40524679">
+		<common:FirstName>John</common:FirstName>
+		<common:MiddleName/>
+		<common:LastName>Doe</common:LastName>
+		<common:Email>john.doe@tylertech.com</common:Email>
+		<common:AdministrativeCopy>jane.doe@tylertech.com</common:AdministrativeCopy>
+		<common:Address>
+			<common:AddressLine1>6500 Interntional Pkwy</common:AddressLine1>
+			<common:AddressLine2>Suite 2000</common:AddressLine2>
+			<common:City>Plano</common:City>
+			<common:State>TX</common:State>
+			<common:ZipCode>75093</common:ZipCode>
+			<common:Country>US</common:Country>
+		</common:Address>
+		<common:PhoneNumber>9727133770</common:PhoneNumber>
+		<common:IsPublic>false</common:IsPublic>
+		<common:IsInFirmMasterList>true</common:IsInFirmMasterList>
+		<IsUndeliverable>false</IsUndeliverable>
+	</common:ServiceContact>
+</GetServiceContactResponse>

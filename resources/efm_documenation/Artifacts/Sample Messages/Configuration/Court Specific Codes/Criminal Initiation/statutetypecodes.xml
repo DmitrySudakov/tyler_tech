@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>StatuteTypeCode</ShortName>
+    <LongName>StatuteTypeCode</LongName>
+    <Version>4362E7ACFCAC8466D5E5B16AE452BECE6FCA234DF7BAB3DD7A07FDED2FDAFC0AC6D27665DADF6FDE3075966F344C15AFD0CD95CC1A39D4D612DC00255ACA6C75</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:StatuteTypeCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:StatuteTypeCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="efspcode" Use="optional">
+      <ShortName>EFSPCode</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10277</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Additional Statute 1</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10278</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Enhancement</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10279</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Additional Statute 2</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10280</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>eFiling Additional Statute</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10281</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Additional Statute 3</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10282</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Additional Statute 4</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>10283</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Priors 1</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>

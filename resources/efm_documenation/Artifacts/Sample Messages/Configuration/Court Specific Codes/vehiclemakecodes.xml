@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>VehicleMakeCode</ShortName>
+    <LongName>VehicleMakeCode</LongName>
+    <Version>ACFE77B562BB45CF791840FA0FB9A1DC1D8774F4EAB4BB6BADC69B514ED47E4A3A9DB1C3563B2B558653411D62F98FF2F09757F8D05EE956DAC814A9AACCE251</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:VehicleMakeCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:VehicleMakeCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="efspcode" Use="optional">
+      <ShortName>EFSPCode</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>DODE</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Dodge Woodcraft</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>INFI</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Infiniti</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>VW</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Veenema &amp; Wiegers, Inc.Mfrs. "V &amp; W" trailers--No. Haledon,New Jersey</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BARE</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Barrett Trailers, Inc.Oklahoma City, Oklahoma--(See Circle BLivestock Trailer)</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>FIAT</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Fiat</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>KIA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>KIA Motors Corporation</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>ALFA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Alfa Romeo</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AME</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>American Trailers, Inc.Div. Polar Mfg. Co.</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>JAGU</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Jaguar</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>SUBA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Subaru</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>EAGE</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Eagle Equipment</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>FOR</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Forte Trailer</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>SAA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Saab</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>TOYT</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Toyota</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>POLR</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Poloron Homes of Pa., Inc.Middleburg, Pennsylvania</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>ACRO</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Acro Tank Co.Springfield, Missouri</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>POR</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Por Trailer</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>PLYM</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Plymouth</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>PORS</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Porsche</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>MIT</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Mitchell Camper Trailer</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>VOLV</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Volvo</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>ISU</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Isuzu</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BENT</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Bentley</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AZTC</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Aztec Products Inc.Mansfield, Texas</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>LEXS</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Lexus</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>GEO</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>GEO</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>PONT</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Pontiac</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>STRN</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Saturn</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>CHEV</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Chevrolet</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>DAIH</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Daihatsu</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BMW</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>BMW</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>TRI</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Tri-Way HD Snowmobile Trailer</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>ACUR</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Acura</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>MAZD</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Mazda</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>SUZI</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Suzuki</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AUDI</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Audi</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>DAEW</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Daewoo</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>HYUN</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Hyundai</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>CHRY</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Chrysler</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>STLG</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Sterling</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BELH</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Belshe TrailerTecumseh, Oklahoma</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>CADI</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Cadillac</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>PEUG</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Peugeot</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>GMC</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>General Motors Corp.</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>RENA</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Renault</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BUIC</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Buick</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>AJAX</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Ajax Trailer Co.</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>BIRM</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Birmingham Mfg. Co., Inc.Springfield, Alabama</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>FERR</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Ferrari</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetPublicListRequest xmlns="urn:tyler:efm:services:schema:GetPublicListRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:tyler:efm:services:schema:GetPublicListRequest ..\..\..\Schema\Admin\GetPublicListRequest.xsd">
+	<FirstName>John</FirstName>
+    <LastName>Doe</LastName>
+    <FirmName>My Firm</FirmName>
+	 <Email>John.Doe@something.com</Email>
+</GetPublicListRequest>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:tyler:ecf:extensions:CaseNotifyMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:jxdm="http://niem.gov/niem/domains/jxdm/4.0" targetNamespace="urn:tyler:ecf:extensions:CaseNotifyMessage" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="http://niem.gov/niem/niem-core/2.0" schemaLocation="../constraint/niem/niem-core/2.0/niem-core.xsd"/>
+	<xs:import namespace="http://niem.gov/niem/domains/jxdm/4.0" schemaLocation="../constraint/niem/domains/jxdm/4.0/jxdm.xsd"/>
+	<xs:complexType name="NotifyCaseEventMessageType">
+		<xs:sequence>
+			<xs:element ref="jxdm:CaseCourt"/>
+			<xs:element ref="nc:CaseTrackingID"/>
+			<xs:element ref="NotificationReason"/>
+			<xs:element ref="Event" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NotificationReason" type="xs:string"/>
+	<xs:element name="Event" type="NotifyEventType"/>
+	<xs:complexType name="NotifyEventType">
+		<xs:sequence>
+			<xs:element name="ID" type="xs:string"/>
+			<xs:element name="EventType" type="CaseEventType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="NotifyCaseEventMessage" type="NotifyCaseEventMessageType"/>
+	<xs:simpleType name="CaseEventType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="CaseFiling">
+				<xs:annotation>
+					<xs:documentation>Case filing event added</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseDisposition">
+				<xs:annotation>
+					<xs:documentation>Case disposition event added</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseReassigned">
+				<xs:annotation>
+					<xs:documentation>Case court/node changed, judge changed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseParty">
+				<xs:annotation>
+					<xs:documentation>Case party added/removed on case, named changed, address changed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CasePartyAttorney">
+				<xs:annotation>
+					<xs:documentation>Case party attorney added/removed on case, named changed, address changed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseDelete">
+				<xs:annotation>
+					<xs:documentation>Case deleted/undeleted</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseExpunge">
+				<xs:annotation>
+					<xs:documentation>Case expunged/unexpunged</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseSecurity">
+				<xs:annotation>
+					<xs:documentation>Case security changed</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DocumentSecurity">
+				<xs:annotation>
+					<xs:documentation> (document type changed, document security group changed, etc.)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DocumentFiling">
+				<xs:annotation>
+					<xs:documentation>Document related to case/case event added</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LoadAllCaseparties">
+				<xs:annotation>
+					<xs:documentation>Notification to reload all parties on the case</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LoadAllCaseEvents">
+				<xs:annotation>
+					<xs:documentation>Notification to reload all events on the case</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="CaseHearing">
+				<xs:annotation>
+					<xs:documentation>Notification to reload all hearings on the case</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

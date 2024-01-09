@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requestdateresponse:RequestCourtDateResponseMessage xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:requestdateresponse="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/requestdateresponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tyler="urn:tyler:ecf:v5.0:extensions:common" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/requestdateresponse ../../../schema/requestdateresponse.xsd urn:tyler:ecf:v5.0:extensions:common ../../../schema/extension/common.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingAssembly</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<!-- This DocumentIdentification contains the envelope number -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>16022</nc:IdentificationID>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>https://efilingprovider.com:8000</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt>
+		<nc:OrganizationIdentification>
+			<!-- Identifier that maps to a node -->
+			<nc:IdentificationID>harris:dc</nc:IdentificationID>
+		</nc:OrganizationIdentification>
+	</j:CaseCourt>
+	<!-- DocumentPostDate is required and is the datetime for the response -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2021-05-24T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<cbrn:MessageStatus cbrn:systemSimulatedIndicator="false">
+		<cbrn:SystemEventDateTime>2021-05-24T14:20:47.0Z</cbrn:SystemEventDateTime>
+		<cbrn:SystemOperatingModeCode>Ops</cbrn:SystemOperatingModeCode>
+		<cbrn:CredentialsAuthenticatedCode>Authenticated</cbrn:CredentialsAuthenticatedCode>
+		<cbrn:MessageStatusCode>Success</cbrn:MessageStatusCode>
+		<cbrn:MessageHandlingError>
+			<cbrn:ErrorCodeText>0</cbrn:ErrorCodeText>
+		</cbrn:MessageHandlingError>
+		<cbrn:ResendRequestIndicator>false</cbrn:ResendRequestIndicator>
+	</cbrn:MessageStatus>
+	<!-- CourtDate is optional, if no elements present then no dates available -->
+	<requestdateresponse:CourtDate>
+		<nc:Case>
+			<j:CaseAugmentation>
+				<j:CaseCourtEvent>
+					<tyler:CourtEventAugmentation>
+						<tyler:CourtSchedule>
+							<tyler:ScheduleDayStartTime>
+								<nc:DateTime>2021-06-07T10:20:47.0Z</nc:DateTime>
+							</tyler:ScheduleDayStartTime>
+							<tyler:ScheduleDayEndTime>
+								<nc:DateTime>2021-06-07T14:20:47.0Z</nc:DateTime>
+							</tyler:ScheduleDayEndTime>
+						</tyler:CourtSchedule>
+					</tyler:CourtEventAugmentation>
+				</j:CaseCourtEvent>
+			</j:CaseAugmentation>			
+		</nc:Case>		
+	</requestdateresponse:CourtDate>
+	<requestdateresponse:CourtDate>
+		<nc:Case>
+			<j:CaseAugmentation>
+				<j:CaseCourtEvent>
+					<tyler:CourtEventAugmentation>
+						<tyler:CourtSchedule>
+							<tyler:ScheduleDayStartTime>
+								<nc:DateTime>2021-06-08T10:20:47.0Z</nc:DateTime>
+							</tyler:ScheduleDayStartTime>
+							<tyler:ScheduleDayEndTime>
+								<nc:DateTime>2021-06-08T14:20:47.0Z</nc:DateTime>
+							</tyler:ScheduleDayEndTime>
+						</tyler:CourtSchedule>
+					</tyler:CourtEventAugmentation>
+				</j:CaseCourtEvent>
+			</j:CaseAugmentation>			
+		</nc:Case>		
+	</requestdateresponse:CourtDate>
+</requestdateresponse:RequestCourtDateResponseMessage>

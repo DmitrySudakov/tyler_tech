@@ -1,0 +1,1 @@
+The java.txt file demonstrates how to create the value for the tyl-efm-api HTTP header that is necessary to obtain code tables from the EFM.

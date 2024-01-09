@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>DisclaimerRequirementCode</ShortName>
+    <LongName>DisclaimerRequirementCode</LongName>
+    <Version>0C38DD2A61CAC1EA9F31F469F1D71515320C21EDF1E5B63E5B1F3E6C6170EBF39A8DC69B2B5F39E2700A24494C01C0A8E969B769F12D48282C457345B3E4E15A</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:DisclaimerRequirementCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:DisclaimerRequirementCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="listorder" Use="optional">
+      <ShortName>List Order</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="requirementtext" Use="optional">
+      <ShortName>Requirement Text</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="efspcode" Use="optional">
+      <ShortName>EFSPCode</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>14733</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>3100</SimpleValue>
+      </Value>
+      <Value ColumnRef="listorder">
+        <SimpleValue>1</SimpleValue>
+      </Value>
+      <Value ColumnRef="requirementtext">
+        <SimpleValue>I agree that this filing is in compliance with the &lt;a target="_blank" href="http://www.google.com/"&gt;Rules for E-Filing&lt;/a&gt;</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>

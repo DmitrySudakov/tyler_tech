@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mstns:CreatePaymentAccountRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:common="urn:tyler:efm:services:schema:Common" xmlns:mstns="urn:tyler:efm:services:schema:CreatePaymentAccountRequest" xsi:schemaLocation="urn:tyler:efm:services:schema:CreatePaymentAccountRequest ..\..\..\Schema\Admin\CreatePaymentAccountRequest.xsd">
+	<common:PaymentAccount PaymentAccountTypeCode="-137">
+		<common:AccountName>TEST BANK ACCOUNT</common:AccountName>
+		<common:PaymentAccountTypeCodeId>-135</common:PaymentAccountTypeCodeId>
+		<common:AccountToken>123456789</common:AccountToken>
+		<common:CardType>Checking</common:CardType>
+		<common:CardLast4>2233</common:CardLast4>
+		<common:CardMonth>0</common:CardMonth>
+		<common:CardYear>0</common:CardYear>
+        <common:CardHolderName>Jane Doe</common:CardHolderName>
+	</common:PaymentAccount>
+</mstns:CreatePaymentAccountRequest>

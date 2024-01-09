@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceContactListResponse xmlns="urn:tyler:efm:services:schema:ServiceContactListResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:base="urn:tyler:efm:services:schema:BaseResponse" xmlns:common="urn:tyler:efm:services:schema:Common" xsi:schemaLocation="urn:tyler:efm:services:schema:ServiceContactListResponse ..\..\..\Schema\Admin\ServiceContactListResponse.xsd">
+  <base:Error>
+    <common:ErrorCode>0</common:ErrorCode>
+    <common:ErrorText>No error</common:ErrorText>
+  </base:Error>
+  <ServiceContact ServiceContactID="b05fbe79-5de0-4d9c-9d8b-d30e59f5cf9a" FirmID="1d343764-75b2-4755-a048-851d40524679" AddByFirmName="System" xmlns="urn:tyler:efm:services:schema:ServiceContactListResponse">
+    <common:FirstName>John</common:FirstName>
+    <common:MiddleName/>
+    <common:LastName>Doe</common:LastName>
+    <common:Email>john.doe@tylertech.com</common:Email>
+    <common:AdministrativeCopy>jane.doe@tylertech.com,Brett.Michaels@gmail.com</common:AdministrativeCopy>
+    <common:Address>
+      <AddressLine1>5101 Tennyson Pkwy</AddressLine1>
+      <AddressLine2 xsi:nil="true" />
+      <City>Plano</City>
+      <State>PA</State>
+      <ZipCode>75024</ZipCode>
+      <Country>US</Country>
+    </common:Address>
+    <common:IsPublic>false</common:IsPublic>
+    <common:IsInFirmMasterList>true</common:IsInFirmMasterList>
+	<IsUndeliverable xmlns="urn:tyler:efm:services:schema:Common">false</IsUndeliverable>
+  </ServiceContact>
+  <ServiceContact ServiceContactID="b58dd2ee-61c9-4a6d-9b9a-531ad6fc8906" FirmID="1d343764-75b2-4755-a048-851d40524679" AddByFirmName="System" xmlns="urn:tyler:efm:services:schema:ServiceContactListResponse">
+    <common:FirstName>Jane</common:FirstName>
+    <common:MiddleName/>
+    <common:LastName>Doe</common:LastName>
+    <common:Email>Jane.Doe@gmail.com</common:Email>
+    <common:Address>
+      <AddressLine1>5109 Tennyson Pkwy</AddressLine1>
+      <AddressLine2 xsi:nil="true" />
+      <City>Plano</City>
+      <State>PA</State>
+      <ZipCode>75024</ZipCode>
+      <Country>US</Country>
+    </common:Address>
+    <common:IsPublic>false</common:IsPublic>
+    <common:IsInFirmMasterList>true</common:IsInFirmMasterList>
+	<IsUndeliverable xmlns="urn:tyler:efm:services:schema:Common">false</IsUndeliverable>
+  </ServiceContact>
+  <ServiceContact ServiceContactID="c1e72d6f-e6f1-4836-ba77-1c2ffc20441c" FirmID="1d343764-75b2-4755-a048-851d40524679" AddByFirmName="System" xmlns="urn:tyler:efm:services:schema:ServiceContactListResponse">
+    <common:FirstName>Mark</common:FirstName>
+    <common:MiddleName>Tom</common:MiddleName>
+    <common:LastName>Smith</common:LastName>
+    <common:Email>mts@hotmail.com</common:Email>
+    <common:AdministrativeCopy>public.contac3t@sysfirm.com</common:AdministrativeCopy>
+    <common:IsPublic>false</common:IsPublic>
+    <common:IsInFirmMasterList>false</common:IsInFirmMasterList>
+	<IsUndeliverable xmlns="urn:tyler:efm:services:schema:Common">false</IsUndeliverable>
+  </ServiceContact>
+</ServiceContactListResponse>

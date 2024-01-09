@@ -1,0 +1,35 @@
+<MessageReceiptMessage xmlns="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:MessageReceiptMessage-4.0" 
+xmlns:ansi-nist="http://niem.gov/niem/ansi-nist/2.0" xmlns:j="http://niem.gov/niem/domains/jxdm/4.0" 
+xmlns:nc="http://niem.gov/niem/niem-core/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:ecf="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:CommonTypes-4.0" 
+xsi:schemaLocation="urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:MessageReceiptMessage-4.0 ..\..\..\Schema\message\ECF-4.0-MessageReceiptMessage.xsd">
+	
+  <ecf:SendingMDELocationID>
+		
+   <nc:IdentificationID>http://tylertech.com</nc:IdentificationID>
+	
+  </ecf:SendingMDELocationID>
+	
+  <ecf:SendingMDEProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-2.0</ecf:SendingMDEProfileCode>
+	
+  <j:CaseCourt>
+		
+    <nc:OrganizationIdentification>
+			
+    <nc:IdentificationID>cameron:dc</nc:IdentificationID>
+		
+    </nc:OrganizationIdentification>
+		
+    <j:CourtName/>
+	
+  </j:CaseCourt>
+	
+  <ecf:Error>
+		
+   <ecf:ErrorCode>0</ecf:ErrorCode>
+		
+   <ecf:ErrorText>No Error</ecf:ErrorText>
+	
+   </ecf:Error>
+
+  </MessageReceiptMessage>

@@ -1,0 +1,5 @@
+<AuthenticateRequest xmlns="urn:tyler:efm:services:schema:AuthenticateRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:tyler:efm:services:schema:AuthenticateRequest ..\..\..\Schema\Admin\AuthenticateRequest.xsd">
+	<Email>someone@email.com</Email>
+	<Password>somepassword</Password>
+	<!--when OKTA is enabled, a JWT Token should be sent instead of a user password. for example: <Password>JWTtokenfromOKTA</Password>-->
+</AuthenticateRequest>

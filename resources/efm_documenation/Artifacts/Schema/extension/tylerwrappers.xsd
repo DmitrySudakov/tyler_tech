@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (http://www.altova.com) by Tyler Technologies (Tyler Technologies) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:document="urn:tyler:ecf:v5.0:extensions:updatedocument" xmlns:recordservice="urn:tyler:ecf:v5.0:extensions:recordservice" xmlns:recordreceipt="urn:tyler:ecf:v5.0:extensions:recordreceipt" xmlns:securecase="urn:tyler:ecf:v5.0:extensions:securecase" xmlns:servicecaselist="urn:tyler:ecf:v5.0:extensions:servicecaselist" xmlns:servicecaselistresponse="urn:tyler:ecf:v5.0:extensions:servicecaselistresponse" xmlns:serviceinformationhistory="urn:tyler:ecf:v5.0:extensions:serviceinformationhistory" xmlns:serviceinformationhistoryresponse="urn:tyler:ecf:v5.0:extensions:serviceinformationhistoryresponse" xmlns:batchcallback="urn:tyler:ecf:v5.0:extensions:batchcallback" xmlns:batchlistrequest="urn:tyler:ecf:v5.0:extensions:batchlistrequest" xmlns:batchlistresponse="urn:tyler:ecf:v5.0:extensions:batchlistresponse" xmlns:batchdetailrequest="urn:tyler:ecf:v5.0:extensions:batchdetailrequest" xmlns:batchdetailresponse="urn:tyler:ecf:v5.0:extensions:batchdetailresponse" xmlns:partylistrequest="urn:tyler:ecf:v5.0:extensions:partylistrequest" xmlns:partylistresponse="urn:tyler:ecf:v5.0:extensions:partylistresponse" xmlns:partyrequest="urn:tyler:ecf:v5.0:extensions:partyrequest" xmlns:partyresponse="urn:tyler:ecf:v5.0:extensions:partyresponse" xmlns:wrappers="urn:tyler:ecf:v5.0:extensions:wrappers" xmlns:updatefeesrequest="urn:tyler:ecf:v5.0:extensions:updatefeesrequest" xmlns:updatefeesresponse="urn:tyler:ecf:v5.0:extensions:updatefeesresponse" xmlns:capturefeesrequest="urn:tyler:ecf:v5.0:extensions:capturefeesrequest" xmlns:capturefeesresponse="urn:tyler:ecf:v5.0:extensions:capturefeesresponse" xmlns:reviewcomplete="urn:tyler:ecf:v5.0:extensions:reviewenvelopecallback" xmlns:casehearingrequest="urn:tyler:ecf:v5.0:extensions:casehearingrequest" xmlns:casehearingresponse="urn:tyler:ecf:v5.0:extensions:casehearingresponse" xmlns:filingservicerequest="urn:tyler:ecf:v5.0:extensions:filingservicerequest" xmlns:filingserviceresponse="urn:tyler:ecf:v5.0:extensions:filingserviceresponse" xmlns:servicetypesrequest="urn:tyler:ecf:v5.0:extensions:servicetypesrequest" xmlns:servicetypesresponse="urn:tyler:ecf:v5.0:extensions:servicetypesresponse" xmlns:returndaterequest="urn:tyler:ecf:v5.0:extensions:returndate" xmlns:returndateresponse="urn:tyler:ecf:v5.0:extensions:returndateresponse" xmlns:servicecallback="urn:tyler:ecf:v5.0:extensions:servicecallback" xmlns:eventcallback="urn:tyler:ecf:v5.0:extensions:eventcallback" targetNamespace="urn:tyler:ecf:v5.0:extensions:wrappers" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:documentation>Schema for namespace urn:tyler:ecf:v5.0:extensions:wrappers</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://release.niem.gov/niem/domains/cbrn/4.1/" schemaLocation="../niem/domains/cbrn/4.1/cbrn.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:updatedocument" schemaLocation="updatedocument.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:recordservice" schemaLocation="recordservice.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:recordreceipt" schemaLocation="recordreceipt.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:securecase" schemaLocation="securecase.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:servicecaselist" schemaLocation="servicecaselist.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:servicecaselistresponse" schemaLocation="servicecaselistresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:serviceinformationhistory" schemaLocation="serviceinformationhistory.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:serviceinformationhistoryresponse" schemaLocation="serviceinformationhistoryresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:batchcallback" schemaLocation="batchcallback.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:batchlistrequest" schemaLocation="batchlistrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:batchlistresponse" schemaLocation="batchlistresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:batchdetailrequest" schemaLocation="batchdetailrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:batchdetailresponse" schemaLocation="batchdetailresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:partylistrequest" schemaLocation="partylistrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:partylistresponse" schemaLocation="partylistresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:partyrequest" schemaLocation="partyrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:partyresponse" schemaLocation="partyresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:updatefeesrequest" schemaLocation="updatefeesrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:updatefeesresponse" schemaLocation="updatefeesresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:capturefeesrequest" schemaLocation="capturefeesrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:capturefeesresponse" schemaLocation="capturefeesresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:reviewenvelopecallback" schemaLocation="notifyenvelopecomplete.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:casehearingrequest" schemaLocation="casehearingrequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:casehearingresponse" schemaLocation="casehearingresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:filingservicerequest" schemaLocation="filingservicerequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:filingserviceresponse" schemaLocation="filingserviceresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:servicetypesrequest" schemaLocation="servicetyperequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:servicetypesresponse" schemaLocation="servicetyperesponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:returndate" schemaLocation="returndaterequest.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:returndateresponse" schemaLocation="returndateresponse.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:servicecallback" schemaLocation="servicecallback.xsd"/>
+	<xs:import namespace="urn:tyler:ecf:v5.0:extensions:eventcallback" schemaLocation="notifyevent.xsd"/>
+	
+	<xs:complexType name="UpdateDocumentRequestType">
+		<xs:sequence>
+			<xs:element ref="document:UpdateDocumentMessage" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateDocumentResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecordServiceRequestType">
+		<xs:sequence>
+			<xs:element ref="recordservice:RecordServiceMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecordServiceResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecordReceiptRequestType">
+		<xs:sequence>
+			<xs:element ref="recordreceipt:RecordReceiptMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RecordReceiptResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SecureCaseRequestType">
+		<xs:sequence>
+			<xs:element ref="securecase:SecureCaseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SecureCaseResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetServiceCaseListRequestType">
+		<xs:sequence>
+			<xs:element ref="servicecaselist:GetServiceCaseListMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetServiceCaseListResponseType">
+		<xs:sequence>
+			<xs:element ref="servicecaselistresponse:GetServiceCaseListResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetServiceInformationHistoryRequestType">
+		<xs:sequence>
+			<xs:element ref="serviceinformationhistory:GetServiceInformationHistoryMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetServiceInformationHistoryResponseType">
+		<xs:sequence>
+			<xs:element ref="serviceinformationhistoryresponse:GetServiceInformationHistoryResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyBatchCompleteRequestType">
+		<xs:sequence>
+			<xs:element ref="batchcallback:NotifyBatchCompleteMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyBatchCompleteResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBatchListRequestType">
+		<xs:sequence>
+			<xs:element ref="batchlistrequest:GetBatchListMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBatchListResponseType">
+		<xs:sequence>
+			<xs:element ref="batchlistresponse:GetBatchListResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBatchDetailRequestType">
+		<xs:sequence>
+			<xs:element ref="batchdetailrequest:GetBatchDetailMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetBatchDetailResponseType">
+		<xs:sequence>
+			<xs:element ref="batchdetailresponse:GetBatchDetailResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetPartyListRequestType">
+		<xs:sequence>
+			<xs:element ref="partylistrequest:GetPartyListMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetPartyListResponseType">
+		<xs:sequence>
+			<xs:element ref="partylistresponse:GetPartyListResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetPartyRequestType">
+		<xs:sequence>
+			<xs:element ref="partyrequest:GetPartyMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetPartyResponseType">
+		<xs:sequence>
+			<xs:element ref="partyresponse:GetPartyResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateFeesRequestType">
+		<xs:sequence>
+			<xs:element ref="updatefeesrequest:UpdateFeesMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="UpdateFeesResponseType">
+		<xs:sequence>
+			<xs:element ref="updatefeesresponse:UpdateFeesResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaptureFeesRequestType">
+		<xs:sequence>
+			<xs:element ref="capturefeesrequest:CaptureFeesMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CaptureFeesResponseType">
+		<xs:sequence>
+			<xs:element ref="capturefeesresponse:CaptureFeesResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyEnvelopeCompleteRequestType">
+		<xs:sequence>
+			<xs:element ref="reviewcomplete:NotifyEnvelopeCompleteMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyEnvelopeCompleteResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseHearingsRequestType">
+		<xs:sequence>
+			<xs:element ref="casehearingrequest:GetCaseHearingsMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCaseHearingsResponseType">
+		<xs:sequence>
+			<xs:element ref="casehearingresponse:GetCaseHearingsResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetFilingServiceRequestType">
+		<xs:sequence>
+			<xs:element ref="filingservicerequest:GetFilingServiceMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetFilingServiceResponseType">
+		<xs:sequence>
+			<xs:element ref="filingserviceresponse:GetFilingServiceResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetServiceTypesRequestType">
+		<xs:sequence>
+			<xs:element ref="servicetypesrequest:GetServiceTypesMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetServiceTypesResponseType">
+		<xs:sequence>
+			<xs:element ref="servicetypesresponse:GetServiceTypesResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetReturnDateRequestType">
+		<xs:sequence>
+			<xs:element ref="returndaterequest:ReturnDateMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetReturnDateResponseType">
+		<xs:sequence>
+			<xs:element ref="returndateresponse:ReturnDateResponseMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyServiceCompleteRequestType">
+		<xs:sequence>
+			<xs:element ref="servicecallback:NotifyServiceCompleteMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyServiceCompleteResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyEventRequestType">
+		<xs:sequence>
+			<xs:element ref="eventcallback:NotifyEventMessage" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="NotifyEventResponseType">
+		<xs:sequence>
+			<xs:element ref="cbrn:MessageStatus"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="UpdateDocumentRequest" type="wrappers:UpdateDocumentRequestType"/>
+	<xs:element name="UpdateDocumentResponse" type="wrappers:UpdateDocumentResponseType"/>
+	<xs:element name="RecordServiceRequest" type="wrappers:RecordServiceRequestType"/>
+	<xs:element name="RecordServiceResponse" type="wrappers:RecordServiceResponseType"/>
+	<xs:element name="RecordReceiptRequest" type="wrappers:RecordReceiptRequestType"/>
+	<xs:element name="RecordReceiptResponse" type="wrappers:RecordReceiptResponseType"/>
+	<xs:element name="SecureCaseRequest" type="wrappers:SecureCaseRequestType"/>
+	<xs:element name="SecureCaseResponse" type="wrappers:SecureCaseResponseType"/>
+	<xs:element name="GetServiceCaseListRequest" type="wrappers:GetServiceCaseListRequestType"/>
+	<xs:element name="GetServiceCaseListResponse" type="wrappers:GetServiceCaseListResponseType"/>
+	<xs:element name="GetServiceInformationHistoryRequest" type="wrappers:GetServiceInformationHistoryRequestType"/>
+	<xs:element name="GetServiceInformationHistoryResponse" type="wrappers:GetServiceInformationHistoryResponseType"/>
+	<xs:element name="NotifyBatchCompleteRequest" type="wrappers:NotifyBatchCompleteRequestType"/>
+	<xs:element name="NotifyBatchCompleteResponse" type="wrappers:NotifyBatchCompleteResponseType"/>
+	<xs:element name="GetBatchListRequest" type="wrappers:GetBatchListRequestType"/>
+	<xs:element name="GetBatchListResponse" type="wrappers:GetBatchListResponseType"/>
+	<xs:element name="GetBatchDetailRequest" type="wrappers:GetBatchDetailRequestType"/>
+	<xs:element name="GetBatchDetailResponse" type="wrappers:GetBatchDetailResponseType"/>
+	<xs:element name="GetPartyListRequest" type="wrappers:GetPartyListRequestType"/>
+	<xs:element name="GetPartyListResponse" type="wrappers:GetPartyListResponseType"/>
+	<xs:element name="GetPartyRequest" type="wrappers:GetPartyRequestType"/>
+	<xs:element name="GetPartyResponse" type="wrappers:GetPartyResponseType"/>
+	<xs:element name="UpdateFeesRequest" type="wrappers:UpdateFeesRequestType"/>
+	<xs:element name="UpdateFeesResponse" type="wrappers:UpdateFeesResponseType"/>
+	<xs:element name="CaptureFeesRequest" type="wrappers:CaptureFeesRequestType"/>
+	<xs:element name="CaptureFeesResponse" type="wrappers:CaptureFeesResponseType"/>
+	<xs:element name="NotifyEnvelopeCompleteRequest" type="wrappers:NotifyEnvelopeCompleteRequestType"/>
+	<xs:element name="NotifyEnvelopeCompleteResponse" type="wrappers:NotifyEnvelopeCompleteResponseType"/>
+	<xs:element name="GetCaseHearingsRequest" type="wrappers:GetCaseHearingsRequestType"/>
+	<xs:element name="GetCaseHearingsResponse" type="wrappers:GetCaseHearingsResponseType"/>
+	<xs:element name="GetFilingServiceRequest" type="wrappers:GetFilingServiceRequestType"/>
+	<xs:element name="GetFilingServiceResponse" type="wrappers:GetFilingServiceResponseType"/>
+	<xs:element name="GetServiceTypesRequest" type="wrappers:GetServiceTypesRequestType"/>
+	<xs:element name="GetServiceTypesResponse" type="wrappers:GetServiceTypesResponseType"/>
+	<xs:element name="GetReturnDateRequest" type="wrappers:GetReturnDateRequestType"/>
+	<xs:element name="GetReturnDateResponse" type="wrappers:GetReturnDateResponseType"/>
+	<xs:element name="NotifyServiceCompleteRequest" type="wrappers:NotifyServiceCompleteRequestType"/>
+	<xs:element name="NotifyServiceCompleteResponse" type="wrappers:NotifyServiceCompleteResponseType"/>
+	<xs:element name="NotifyEventRequest" type="wrappers:NotifyEventRequestType"/>
+	<xs:element name="NotifyEventResponse" type="wrappers:NotifyEventResponseType"/>
+</xs:schema>

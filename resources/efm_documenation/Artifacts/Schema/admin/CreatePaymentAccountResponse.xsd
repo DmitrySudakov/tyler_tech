@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CreatePaymentAccountResponse"
+    targetNamespace="urn:tyler:efm:services:schema:CreatePaymentAccountResponse"
+    elementFormDefault="qualified"
+    xmlns="urn:tyler:efm:services:schema:CreatePaymentAccountResponse"
+    xmlns:mstns="urn:tyler:efm:services:schema:CreatePaymentAccountResponse"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:base="urn:tyler:efm:services:schema:BaseResponse"
+    xmlns:common="urn:tyler:efm:services:schema:Common"
+>
+  <xs:import namespace="urn:tyler:efm:services:schema:Common" schemaLocation="Common.xsd"/>
+  <xs:import namespace="urn:tyler:efm:services:schema:BaseResponse" schemaLocation="BaseResponse.xsd"/>
+
+  <xs:complexType name="CreatePaymentAccountResponseType">
+    <xs:complexContent>
+      <xs:extension base="base:BaseResponseType">
+        <xs:sequence>
+          <xs:element name="PaymentAccountID" type="xs:string" maxOccurs="1" minOccurs="1"/>
+          <xs:element minOccurs="0" maxOccurs="1" ref="common:PaymentAccountLocationDetails"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:element name="CreatePaymentAccountResponse" type="CreatePaymentAccountResponseType"/>
+</xs:schema>

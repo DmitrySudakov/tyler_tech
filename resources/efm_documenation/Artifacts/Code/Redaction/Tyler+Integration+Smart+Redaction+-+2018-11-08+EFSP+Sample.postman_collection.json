@@ -1,0 +1,1299 @@
+{
+	"info": {
+		"_postman_id": "438a4cdd-b600-4808-8fd6-056163f764f1",
+		"name": "Tyler Integration Smart Redaction - 2018/11/08 EFSP Sample",
+		"description": "# Introduction\nThis is a sample project to demonstrate and test the call structure and functionality of Tyler's automated document redaction service.\n\nThe service makes use of [OData][], which is an ISO/IEC approved OASIS standard.\n\n\n------\n\n\n# Overview\nThis is a reference sample, and should not be used for any production purposes. Implementation will be specific to the platform for which you are developing. Additionally, each solution provider (EFSP) will require their own set of credentials to use the system. Please reach out to EFSP support for the necessary credentials\n\n\n------\n\n\n# Authentication\nAuthentication is done using HTTP basic authentication as defined in [RFC 1945 - Section 11: \"Authentication\"][HTTP v1 Auth] and [RFC 7235 - HTTP v1.1 Authentication][HTTP v2 Auth]. Within this sample, the credential values are specified within the `Environment` configuration block.\n\n\n------\n\n\n# Using this sample\n\nThe Postman environment related to this collection defines several variables, which are used within the requests for a number of reasons, such as building the full URL structure, specifying which service/endpoint to use, etc. The following variables are the ones which should be configured for each group's use.\n* `SERVICE_HOST` : The FQDN (Fully Qualified Domain Name) of the host which provides the redaction service\n* `SERVICE_PATH` : The relative path to the service endpoint\n* `BASIC_AUTH_USERNAME` : The username portion of the credentials provided to use the service\n* `BASIC_AUTH_PASSWORD` : The password portion of the credentials provided to use the service\n* `DOCUMENT_ID` : The unique document ID (GUID) which will be used to refer to the document during requests\n* `DOCUMENT_VIEWER_QUERYSTRING` : The generated absolute URL to the interactive viewer, which can be opened from a browser\n* `STATUS_MONITOR_URL` : The url returned as part of an asynchronous action call, which can be used to get the current status of the request.\n* `ASYNC_CALLBACK_URL` : An absolute URL which can be used by the redaction service, on completion of an asynchronous method, to indicate that the operation has completed. This is done using an HTTP `GET` request, so no additional information or context is required. It is recommended that you include either the `DOCUMENT_ID` value as part of the URL, or some other identifier which will then allow this call to be matched to a local document, for which the status monitor URL (`STATUS_MONITOR_URL`) can then be used to retrieve the status of the operation.\n* `ASYNC_WAIT_DELAY` : The amount of time, in seconds, during which a connection to the server opened to submit an action (`Recognize`, `CalculateRedactions`, etc.) will wait before moving to an asynchronous process, using the status monitor URL (`STATUS_MONITOR_URL` and/or the callback process through the `ASYNC_CALLBACK_URL`).\n\n\n\nThis Postman collection also contains variables, unrelated to the Postman environment. For the purposes of this example, these variables are used as constants for the requests, holding the values of different elements, such as operation names and namespaces, entity collection names and properties, etc. These should not need to be changed unless directed to do so.\n\n\n-----\n\n\n\n\n\n[OData]: https://www.odata.org/ \"The OData (Open Data Protocol) specification and samples page.\"\n\n[OData ISO]: https://www.oasis-open.org/news/pr/iso-iec-jtc-1-approves-oasis-odata-standard-for-open-data-exchange \"ISO (International Standards Organization)/IEC (International Electrotechnical Commission) JTC 1 (Joint Technology Committee on Information Technology) Approves OASIS OData Standard for Open Data Exchange\"\n\n[OData OASIS]: https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=odata \"OASIS Open Data Protocol (OData) TC (Technical Committee)\"  \n\n[HTTP v1 Auth]: https://tools.ietf.org/html/rfc1945#section-11 \"Authentication section of RFC #1945 - HTTP v1.0\"\n\n[HTTP v2 Auth]: https://tools.ietf.org/html/rfc7235 \"RFC #7235 - HTTP v1.1 Authentication\"\n\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Entity Operations (CRUD)",
+			"item": [
+				{
+					"name": "Error Scenarios",
+					"item": [
+						{
+							"name": "Retrieve Document Entity with an empty key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "61047357-c93b-41e2-b2f5-3afe373e1279",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.equal(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{BASIC_AUTH_PASSWORD}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{BASIC_AUTH_USERNAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"description": "The version of the OData specification used for the request",
+										"key": "OData-Version",
+										"type": "text",
+										"value": "4.01"
+									},
+									{
+										"description": "The maximum version of the OData specification which can be used to handle the response",
+										"key": "OData-MaxVersion",
+										"type": "text",
+										"value": "4.01"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('')",
+									"host": [
+										"{{SERVICE_HOST}}"
+									],
+									"path": [
+										"{{REDACTION_SERVICE_PATH}}",
+										"{{DOCUMENTS_COLLECTION}}('')"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve Document Entity with an invalid key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0a420416-51e6-4da4-bb9a-ae6c11ddd274",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.equal(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "{{BASIC_AUTH_PASSWORD}}",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "{{BASIC_AUTH_USERNAME}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "OData-Version",
+										"value": "4.01",
+										"description": "The version of the OData specification used for the request",
+										"type": "text"
+									},
+									{
+										"key": "OData-MaxVersion",
+										"value": "4.01",
+										"description": "The maximum version of the OData specification which can be used to handle the response",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{$guid}}')",
+									"host": [
+										"{{SERVICE_HOST}}"
+									],
+									"path": [
+										"{{REDACTION_SERVICE_PATH}}",
+										"{{DOCUMENTS_COLLECTION}}('{{$guid}}')"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Document Entity with an empty key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8216f772-c75c-4b39-a57c-f8e9eade5d7f",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.equal(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "The version of the OData specification used for the request",
+										"key": "OData-Version",
+										"type": "text",
+										"value": "4.01"
+									},
+									{
+										"description": "The maximum version of the OData specification which can be used to handle the response",
+										"key": "OData-MaxVersion",
+										"type": "text",
+										"value": "4.01"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('')",
+									"host": [
+										"{{SERVICE_HOST}}"
+									],
+									"path": [
+										"{{REDACTION_SERVICE_PATH}}",
+										"{{DOCUMENTS_COLLECTION}}('')"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Document Entity with an invalid key",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d0e2d828-08a8-4bec-aa31-87754a0352c6",
+										"exec": [
+											"pm.test(\"Successful POST request\", function () {",
+											"    pm.expect(pm.response.code).to.be.equal(404);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"description": "The version of the OData specification used for the request",
+										"key": "OData-Version",
+										"type": "text",
+										"value": "4.01"
+									},
+									{
+										"description": "The maximum version of the OData specification which can be used to handle the response",
+										"key": "OData-MaxVersion",
+										"type": "text",
+										"value": "4.01"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{$guid}}')",
+									"host": [
+										"{{SERVICE_HOST}}"
+									],
+									"path": [
+										"{{REDACTION_SERVICE_PATH}}",
+										"{{DOCUMENTS_COLLECTION}}('{{$guid}}')"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create Document Entity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee38e8db-ba95-4083-9f93-4599642bf5ed",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.equal(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"DocumentNumber\":\"{{DOCUMENT_ID}}\",\r\n\t\"DocumentType\":\"Court\",\r\n\t\"PDFAOutputRequested\":false,\r\n\t\"Minor\":[\r\n\t\t{\r\n\t\t\t\"FirstName\":\"Micro\",\r\n\t\t\t\"LastName\":\"Ho-Tep\",\r\n\t\t\t\"MiddleInitial\":\"\",\r\n\t\t\t\"Suffix\":\"\"\r\n\t\t}],\r\n\t\"MinorAddress\":[{\r\n\t\t\"Address1\":\"123 Main\",\r\n\t\t\"Address2\":null,\r\n\t\t\"City\":\"City\",\r\n\t\t\"State\":\"Confusion\",\r\n\t\t\"Zip\":\"Zip\"\r\n\t}],\r\n\t\"MinorDOB\":[\"2005-05-15\",\r\n\t\t\t\t\"2014-12-16\"\r\n\t]\r\n}"
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}"
+							]
+						},
+						"description": "Creates a document entity, which can also include the `Minor`, `MinorAddress` and `MinorDOB` child entities.\n\nThe date format for the `MinorDOB` entries must strictly follow the `YYYY-MM-DD` format. Meaning that day and month values *must* be zero-padded, and the separator *must* be a simple hyphen.\n\n*Note*: While the collection names have the word \"Minor\", these are to be used for *any* sensitive information for any and all sensitive parties, such as victims, witnesses, etc. And all data for all of the parties is assigned to the collections for the document. There are no distinct parties, as the data to be identified within the document is not sensitive at the party level, but rather, at the document level."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Document Entity",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "10d806fe-1e80-41b8-8fc3-5472d1b68d24",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "5c7cb09f-01ba-492c-8a3d-a0cdbd6ba63e",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.equal(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')"
+							]
+						},
+						"description": "Retrieves the `Document` entity, including sensitive party data which has been assigned to the document.\n\nOnce the `Scan` operation is completed, the `OCRData` field will contain the OCR'd text. Once the `CalculateRedactions` operation completes, the `OCRData` field will contain the OCR'd text with the sensitive data removed. If any redactable areas were identified, they will be returned as part of the `Redactions` collection."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Document Minor Party Name(s)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{MINOR_NAME_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+								"{{MINOR_NAME_COLLECTION}}"
+							]
+						},
+						"description": "Retrieves the collection of party names which are to be identified as sensitive for redaction for the given document."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document Minor Party Name(s)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\":[\n\t{\n\t\t\"FirstName\":\"Jimbo\",\n\t\t\"LastName\":\"Jones\",\n\t\t\"MiddleInitial\":\"\",\n\t\t\"Suffix\":\"\"\n\t},\n\t{\n\t\t\"FirstName\":\"Micro\",\n\t\t\"LastName\":\"Ho-Tep\",\n\t\t\"MiddleInitial\":\"\",\n\t\t\"Suffix\":\"\"\n\t}]\n}"
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{MINOR_NAME_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+								"{{MINOR_NAME_COLLECTION}}"
+							]
+						},
+						"description": "Updates the collection of party names which are to be identified as sensitive for redaction for the given document.\n\n*Note*: This is a _replace_ operation (HTTP `PUT`), not an _update_ operation (HTTP `PATCH`). Any elements not included in the update will not be present after the operation completes."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Document Minor Party Date of Birth collection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{MINOR_DOB_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+								"{{MINOR_DOB_COLLECTION}}"
+							]
+						},
+						"description": "Retrieves the collection of dates of birth which are to be identified as sensitive for redaction for the given document."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document Minor Party Date of Birth collection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "The version of the OData specification used for the request",
+								"key": "OData-Version",
+								"type": "text",
+								"value": "4.01"
+							},
+							{
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"key": "OData-MaxVersion",
+								"type": "text",
+								"value": "4.01"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\":[\n\t\t\"1985-05-15\",\n\t\t\"1995-08-22\",\n\t\t\"2013-12-03\",\n\t\t\"2014-12-16\"\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{MINOR_DOB_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+								"{{MINOR_DOB_COLLECTION}}"
+							]
+						},
+						"description": "Updates the collection of party dates of birth which are to be identified as sensitive for redaction for the given document.\n\n*Note*: This is a _replace_ operation (HTTP `PUT`), not an _update_ operation (HTTP `PATCH`). Any elements not included in the update will not be present after the operation completes."
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Document Minor Party Address collection",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{MINOR_ADDRESS_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+								"{{MINOR_ADDRESS_COLLECTION}}"
+							]
+						},
+						"description": "Retrieves the collection of party addresses which are to be identified as sensitive for redaction for the given document."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Document Minor Party Address collection",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"description": "The version of the OData specification used for the request",
+								"key": "OData-Version",
+								"type": "text",
+								"value": "4.01"
+							},
+							{
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"key": "OData-MaxVersion",
+								"type": "text",
+								"value": "4.01"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"value\":\n\t[\n\t\t{\n            \"Address1\": \"123 MAIN\",\n            \"Address2\": \"\",\n            \"City\": \"CITY\",\n            \"State\": \"CONFUSION\",\n            \"Zip\": \"Zip\"\n        },\n\t\t{\n            \"Address1\": \"4321 Abbey Rd.\",\n            \"Address2\": \"\",\n            \"City\": \"Liverpool\",\n            \"State\": \"UK\",\n            \"Zip\": \"00000\"\n        },\n\t\t{\n            \"Address1\": \"24 Dusty Trail\",\n            \"Address2\": \"\",\n            \"City\": \"Cowtown\",\n            \"State\": \"IA\",\n            \"Zip\": \"03233\"\n        }\n\n\t]\n}\n"
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{MINOR_ADDRESS_COLLECTION}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+								"{{MINOR_ADDRESS_COLLECTION}}"
+							]
+						},
+						"description": "Updates the collection of party addresses which are to be identified as sensitive for redaction for the given document.\n\n*Note*: This is a _replace_ operation (HTTP `PUT`), not an _update_ operation (HTTP `PATCH`). Any elements not included in the update will not be present after the operation completes."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Document Entity - Includes child entities & Assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3a88e869-88db-48ca-a8a7-62eb085612c2",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.equal(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}",
+								"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')"
+							]
+						},
+						"description": "Deleted the specified document entity, which will also remove the `Minor`, `MinorAddress` and `MinorDOB` child entities, as well as any data identified or updated as part of the redaction operations.\n\nThis should, typically, be used when a document has already been added to a draft filing, and is being removed. Once a filing is submitted, this operation *should not* be called."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Binary Asset Operations (Files)",
+			"item": [
+				{
+					"name": "Upload document asset",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"description": "The version of the OData specification used for the request",
+								"type": "text"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"description": "The maximum version of the OData specification which can be used to handle the response",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/pdf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}{{MEDIA_ROOT}}/{{DOCUMENT_ID}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}{{MEDIA_ROOT}}",
+								"{{DOCUMENT_ID}}"
+							]
+						},
+						"description": "Uploads the document's binary assets (file) to the service for a given document.\n\nAs with most HTTP transfers, the `Content-type` header must be set to the correct MIME type, and the file should be included in the content of the request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Download document asset",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}{{MEDIA_ROOT}}/{{DOCUMENT_ID}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"{{REDACTION_SERVICE_PATH}}{{MEDIA_ROOT}}",
+								"{{DOCUMENT_ID}}"
+							]
+						},
+						"description": "Retrieve the binary asset (file) for a given document."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Operations",
+			"item": [
+				{
+					"name": "Asynchronous Operations",
+					"item": [
+						{
+							"name": "With Timeout Only",
+							"item": [
+								{
+									"name": "Perform Document Scan (OCR) Operation w/ Callback",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e83fb88e-159a-4c8d-ae69-ed479e8067ab",
+												"exec": [
+													"pm.test(\"Content-Type is present\", function () {",
+													"    var location = postman.getResponseHeader(\"Location\");",
+													"    pm.expect(location.length > 0);",
+													"",
+													"    pm.environment.set(\"STATUS_MONITOR_URL\", location);",
+													"    console.log('Status monitor URL for the \"' + pm.info.requestName + '\" on document ' + pm.environment.get('DOCUMENT_ID') + ' : ' + location);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Async preference applied header was sent\", function() {",
+													"   pm.response.to.have.header(\"Preference-Applied\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Prefer",
+												"value": "respond-async; wait={{ASYNC_WAIT_DELAY}};",
+												"description": "Specify that the request should be handled asynchronously by the server, and wait a maximum of 3 seconds before closing the connection",
+												"type": "text"
+											},
+											{
+												"description": "The version of the OData specification used for the request",
+												"key": "OData-Version",
+												"type": "text",
+												"value": "4.01"
+											},
+											{
+												"description": "The maximum version of the OData specification which can be used to handle the response",
+												"key": "OData-MaxVersion",
+												"type": "text",
+												"value": "4.01"
+											}
+										],
+										"body": {},
+										"url": {
+											"raw": "{{SERVICE_HOST}}{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{OPERATION_NAMESPACE}}{{SCAN_OPERATION_SUFFIX}}",
+											"host": [
+												"{{SERVICE_HOST}}{{REDACTION_SERVICE_PATH}}"
+											],
+											"path": [
+												"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+												"{{OPERATION_NAMESPACE}}{{SCAN_OPERATION_SUFFIX}}"
+											]
+										},
+										"description": "Invokes an asynchronous execution of the `Scan` operation (OCR) for the given document.\n\nThe call should return an HTTP `200: OK` response if the operation completes before the connection is broken, or `202: Accepted` if the operation's execution did not complete. With either of these responses, the current status of the operation can be retrieved using the value of the `Location` response header.\n\nThe value of the `Prefer` request header (OData standard) determines whether the request should be handled asynchronously or not, how long the connection should be maintained before being closed to pursue the operation asynchronously, as well as any other asynchronous operation parameters.\n\nThe value of the `Location` response header, if needed, can be seen in the Postman console window."
+									},
+									"response": []
+								},
+								{
+									"name": "Perform Document Redaction (Identify data) Operation (Async)  w/ Callback",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "00fee828-0c8d-49e8-b828-3250010afc8e",
+												"exec": [
+													"pm.test(\"Content-Type is present\", function () {",
+													"    var location = postman.getResponseHeader(\"Location\");",
+													"    pm.expect(location.length > 0);",
+													"",
+													"    pm.environment.set(\"STATUS_MONITOR_URL\", location);",
+													"    console.log('Status monitor URL for the \"' + pm.info.requestName + '\" on document ' + pm.environment.get('DOCUMENT_ID') + ' : ' + location);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Async preference applied header was sent\", function() {",
+													"   pm.response.to.have.header(\"Preference-Applied\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Prefer",
+												"value": "respond-async; wait={{ASYNC_WAIT_DELAY}};",
+												"description": "Specify that the request should be handled asynchronously by the server, and wait a maximum of 3 seconds before closing the connection",
+												"type": "text"
+											},
+											{
+												"key": "OData-Version",
+												"value": "4.01",
+												"description": "The version of the OData specification used for the request",
+												"type": "text"
+											},
+											{
+												"key": "OData-MaxVersion",
+												"value": "4.01",
+												"description": "The maximum version of the OData specification which can be used to handle the response",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{}"
+										},
+										"url": {
+											"raw": "{{SERVICE_HOST}}{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{OPERATION_NAMESPACE}}{{CALCULATE_OPERATION_SUFFIX}}",
+											"host": [
+												"{{SERVICE_HOST}}{{REDACTION_SERVICE_PATH}}"
+											],
+											"path": [
+												"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+												"{{OPERATION_NAMESPACE}}{{CALCULATE_OPERATION_SUFFIX}}"
+											]
+										},
+										"description": "Invokes an asynchronous execution of the `Calculate` operation (Identify) for the given document.\n\nThe call should return an HTTP `200: OK` response if the operation completes before the connection is broken, or `202: Accepted` if the operation's execution did not complete. With either of these responses, the current status of the operation can be retrieved using the value of the `Location` response header.\n\nThe value of the `Prefer` request header (OData standard) determines whether the request should be handled asynchronously or not, how long the connection should be maintained before being closed to pursue the operation asynchronously, as well as any other asynchronous operation parameters.\n  \nThe value of the `Location` response header, if needed, can be seen in the Postman console window."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "With Timeout and Callback",
+							"item": [
+								{
+									"name": "Perform Document Scan (OCR) Operation (Async)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "4d99a5a1-b4e0-4c19-8399-6e3ed4e3ab4e",
+												"exec": [
+													"pm.test(\"Content-Type is present\", function () {",
+													"    var location = postman.getResponseHeader(\"Location\");",
+													"    pm.expect(location.length > 0);",
+													"",
+													"    pm.environment.set(\"STATUS_MONITOR_URL\", location);",
+													"    console.log('Status monitor URL for the \"' + pm.info.requestName + '\" on document ' + pm.environment.get('DOCUMENT_ID') + ' : ' + location);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Async preference applied header was sent\", function() {",
+													"   pm.response.to.have.header(\"Preference-Applied\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Prefer",
+												"value": "respond-async; wait={{ASYNC_WAIT_DELAY}}; odata.callback; url=\"{{ASYNC_CALLBACK_URL}}{{DOCUMENT_ID}}\"",
+												"description": "Performs an asynchronous OData operation, with a 3 second timeout, and callback URL specified",
+												"type": "text"
+											},
+											{
+												"description": "The version of the OData specification used for the request",
+												"key": "OData-Version",
+												"type": "text",
+												"value": "4.01"
+											},
+											{
+												"description": "The maximum version of the OData specification which can be used to handle the response",
+												"key": "OData-MaxVersion",
+												"type": "text",
+												"value": "4.01"
+											},
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{}"
+										},
+										"url": {
+											"raw": "{{SERVICE_HOST}}/{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{OPERATION_NAMESPACE}}{{SCAN_OPERATION_SUFFIX}}",
+											"host": [
+												"{{SERVICE_HOST}}"
+											],
+											"path": [
+												"{{REDACTION_SERVICE_PATH}}",
+												"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+												"{{OPERATION_NAMESPACE}}{{SCAN_OPERATION_SUFFIX}}"
+											]
+										},
+										"description": "Invokes an asynchronous execution of the `Scan` operation (OCR) for the given document.\n\nThe call should return an HTTP `200: OK` response if the operation completes before the connection is broken, or `202: Accepted` if the operation's execution did not complete. With either of these responses, the current status of the operation can be retrieved using the value of the `Location` response header.\n\nThe value of the `Prefer` request header (OData standard) determines whether the request should be handled asynchronously or not, how long the connection should be maintained before being closed to pursue the operation asynchronously, as well as any other asynchronous operation parameters.\n\nThe value of the `Location` response header, if needed, can be seen in the Postman console window."
+									},
+									"response": []
+								},
+								{
+									"name": "Perform Document Redaction (Identify data) Operation (Async with callback)",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "00fee828-0c8d-49e8-b828-3250010afc8e",
+												"exec": [
+													"pm.test(\"Content-Type is present\", function () {",
+													"    var location = postman.getResponseHeader(\"Location\");",
+													"    pm.expect(location.length > 0);",
+													"",
+													"    pm.environment.set(\"STATUS_MONITOR_URL\", location);",
+													"    console.log('Status monitor URL for the \"' + pm.info.requestName + '\" on document ' + pm.environment.get('DOCUMENT_ID') + ' : ' + location);",
+													"});",
+													"",
+													"",
+													"pm.test(\"Async preference applied header was sent\", function() {",
+													"   pm.response.to.have.header(\"Preference-Applied\");",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Prefer",
+												"value": "respond-async; wait={{ASYNC_WAIT_DELAY}}; odata.callback; url=\"{{ASYNC_CALLBACK_URL}}\"",
+												"description": "Performs an asynchronous OData operation, with a 3 second timeout, and callback URL specified",
+												"type": "text"
+											},
+											{
+												"key": "OData-Version",
+												"value": "4.01",
+												"description": "The version of the OData specification used for the request",
+												"type": "text"
+											},
+											{
+												"key": "OData-MaxVersion",
+												"value": "4.01",
+												"description": "The maximum version of the OData specification which can be used to handle the response",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{}"
+										},
+										"url": {
+											"raw": "{{SERVICE_HOST}}{{REDACTION_SERVICE_PATH}}/{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')/{{OPERATION_NAMESPACE}}{{CALCULATE_OPERATION_SUFFIX}}",
+											"host": [
+												"{{SERVICE_HOST}}{{REDACTION_SERVICE_PATH}}"
+											],
+											"path": [
+												"{{DOCUMENTS_COLLECTION}}('{{DOCUMENT_ID}}')",
+												"{{OPERATION_NAMESPACE}}{{CALCULATE_OPERATION_SUFFIX}}"
+											]
+										},
+										"description": "Invokes an asynchronous execution of the `Calculate` operation (Identify) for the given document.\n\nThe call should return an HTTP `200: OK` response if the operation completes before the connection is broken, or `202: Accepted` if the operation's execution did not complete. With either of these responses, the current status of the operation can be retrieved using the value of the `Location` response header.\n\nThe value of the `Prefer` request header (OData standard) determines whether the request should be handled asynchronously or not, how long the connection should be maintained before being closed to pursue the operation asynchronously, as well as any other asynchronous operation parameters.\n\nThe value of the `Location` response header, if needed, can be seen in the Postman console window."
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "Poll for operation status (Shared for all async operations)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{STATUS_MONITOR_URL}}",
+									"host": [
+										"{{STATUS_MONITOR_URL}}"
+									]
+								},
+								"description": "Uses the value of the `Location` HTTP response header of an asynchronous request to fetch and determine the current state of the specified asynchronous operation. This is determined by the presence and value within the HTTP `Prefer` request header (OData standard)."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Viewer/Editor",
+			"item": [
+				{
+					"name": "Get Document QueryString Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc7a1492-2fc8-472a-9371-ad788117dd5f",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"",
+									"const jsonResponse = pm.response.json();",
+									"const EDITOR_TOKEN_RESPONSE_BODY = jsonResponse.value;",
+									"",
+									"console.log('Editor security token value: ' + EDITOR_TOKEN_RESPONSE_BODY);",
+									"pm.environment.set('DOCUMENT_VIEWER_SECURITY_TOKEN', EDITOR_TOKEN_RESPONSE_BODY);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "aa4c8429-e4d1-49dc-badf-717171bf42d1",
+								"exec": [
+									"const AUDIT_ID = new Date().getTime().toString();",
+									"console.log('Security token audit id: ' + AUDIT_ID);",
+									"pm.environment.set('DOCUMENT_EDITOR_AUDIT_ID', AUDIT_ID);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "OData-Version",
+								"value": "4.01",
+								"type": "text",
+								"description": "The version of the OData specification used for the request"
+							},
+							{
+								"key": "OData-MaxVersion",
+								"value": "4.01",
+								"type": "text",
+								"description": "The maximum version of the OData specification which can be used to handle the response"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Type\":\"editRedactions\",\n\t\"Scope\":{\n\t\t\"DocumentNumber\":\"hd-pdf-20181031110616-Individual\"\n\t},\n\t\"AuditId\":\"hd-pdf-20181031110616-Individual\"\n}"
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}{{SECURITY_SERVICE_PATH}}{{GENERATE_SECURITY_TOKEN_OPERATION_PATH}}",
+							"host": [
+								"{{SERVICE_HOST}}{{SECURITY_SERVICE_PATH}}{{GENERATE_SECURITY_TOKEN_OPERATION_PATH}}"
+							]
+						},
+						"description": "Calls the newly created security service endpoint (`/Security`) to generate the QueryString value which will need to be appended to the Viewer's URL to review and edit the document's redactions.\n\nThis makes use of a new endpoint, `Security`, which is versioned similarly to the `OCRWeb` (document & redaction) endpoint.\n\nThe current version of the Security service is 1, thus, the full security endpoint path is `/Security/v1`."
+					},
+					"response": []
+				},
+				{
+					"name": "Open Viewer/Editor",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3de3d70e-3a04-46a9-9eda-acbec15afe84",
+								"exec": [
+									"const PARAMETER_DELIMITER = '|TCMDELIM|';",
+									"",
+									"// Specify the viewer mode and append the parameter delimiter",
+									"let queryString = 'TCMRedactionMode' + PARAMETER_DELIMITER;",
+									"",
+									"// Append the security token value, and again append the parameter delimiter",
+									"queryString += pm.environment.get('DOCUMENT_VIEWER_SECURITY_TOKEN') + PARAMETER_DELIMITER; ",
+									"// Append the Document ID for which we want the viewer. Final parameter, so no delimiter",
+									"queryString += pm.environment.get('DOCUMENT_ID');",
+									"",
+									"console.log('Querystring (pre-base64): ' + queryString);",
+									"",
+									"// Convert to Base64",
+									"queryString = btoa(queryString);",
+									"",
+									"console.log('Querystring (post-base64): ' + queryString);",
+									"",
+									"// Set the PostMan environment variable with the generated querystring ",
+									"pm.environment.set('DOCUMENT_VIEWER_QUERYSTRING', queryString);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad0b8492-4245-4a8b-a0dd-05060fc0e769",
+								"exec": [
+									"pm.test(\"Requesting the viewer returns HTTP 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"console.log('Viewer URL: ' + this.request.url);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{SERVICE_HOST}}/ocr/viewer/index.html?query={{DOCUMENT_VIEWER_QUERYSTRING}}",
+							"host": [
+								"{{SERVICE_HOST}}"
+							],
+							"path": [
+								"ocr",
+								"viewer",
+								"index.html"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "{{DOCUMENT_VIEWER_QUERYSTRING}}",
+									"description": "Base 64 encoded values to be used by/for the viewer"
+								}
+							]
+						},
+						"description": "Generates the URL for the interactive viewer and editor, and retrieves it, to display the HTML. The URL is logged to the console, and can be used (copy/paste) in a browser to interact with the viewer.\n\nTo open the Postman console, open the `View` menu, then select the `Show Postman Console` item (or <kbd>Ctrl+Alt+C</kbd> on Windows)"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{BASIC_AUTH_PASSWORD}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{BASIC_AUTH_USERNAME}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4ce8f6b7-6d9b-4354-a7ff-ab742877bc89",
+				"type": "text/javascript",
+				"exec": [
+					"const documentIDValue = pm.environment.get('DOCUMENT_ID') || '';",
+					"",
+					"if (0 === documentIDValue.length){",
+					"    console.log('No document ID is set. Generating a document id...');",
+					"",
+					"    const uuid = require('uuid');",
+					"",
+					"    const newDocumentID = uuid();",
+					"    console.log('New ID: ' + newDocumentID);",
+					"    pm.environment.set('DOCUMENT_ID', newDocumentID);",
+					"}",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c24d882b-3b69-40a2-8a12-36f7d948a6ba",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5d951aa5-f830-460f-8aa7-59333f802073",
+			"key": "DOCUMENTS_COLLECTION",
+			"value": "Documents",
+			"type": "string"
+		},
+		{
+			"id": "47a636e1-c2d2-48e8-a2ef-a0c8a8f3f144",
+			"key": "OPERATION_NAMESPACE",
+			"value": "OCRWeb",
+			"type": "string"
+		},
+		{
+			"id": "8be09c00-e15a-4916-ac98-279cf01ec888",
+			"key": "SCAN_OPERATION_SUFFIX",
+			"value": ".Scan",
+			"type": "string"
+		},
+		{
+			"id": "6a959ef7-adbf-4ec2-b397-a5efca928380",
+			"key": "CALCULATE_OPERATION_SUFFIX",
+			"value": ".CalculateRedactions",
+			"type": "string"
+		},
+		{
+			"id": "67963e51-0bc9-46a8-a01d-42f064beb5f2",
+			"key": "SCAN_AND_REDACT_OPERATION_SUFFIC",
+			"value": ".ScanAndRedact",
+			"type": "string"
+		},
+		{
+			"id": "48ef7bb9-ed02-4760-9ae6-3cb7ba53bb42",
+			"key": "MEDIA_ROOT",
+			"value": "/media",
+			"type": "string"
+		},
+		{
+			"id": "5ed9ef7a-36fe-4c84-92c4-7a94b1f9ffde",
+			"key": "MINOR_NAME_COLLECTION",
+			"value": "Minor",
+			"type": "string"
+		},
+		{
+			"id": "aee45e4e-119a-4856-8775-9763e5f6a826",
+			"key": "MINOR_DOB_COLLECTION",
+			"value": "MinorDOB",
+			"type": "string"
+		},
+		{
+			"id": "e8c4e9f8-f098-4760-8ec8-04a6ba35f69e",
+			"key": "MINOR_ADDRESS_COLLECTION",
+			"value": "MinorAddress",
+			"type": "string"
+		},
+		{
+			"id": "7d427b74-4079-4f63-af55-89af9673c5a3",
+			"key": "GENERATE_SECURITY_TOKEN_OPERATION_PATH",
+			"value": "/GenerateJwt",
+			"type": "string"
+		}
+	]
+}

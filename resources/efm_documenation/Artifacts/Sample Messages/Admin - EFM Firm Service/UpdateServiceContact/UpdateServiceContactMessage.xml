@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UpdateServiceContactRequest xmlns="urn:tyler:efm:services:schema:UpdateServiceContactRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:common="urn:tyler:efm:services:schema:Common" xsi:schemaLocation="urn:tyler:efm:services:schema:UpdateServiceContactRequest ..\..\..\Schema\Admin\UpdateServiceContactRequest.xsd">
+  <common:ServiceContact ServiceContactID="C542A346-F1E3-4A7B-90B7-4C83C485ACED">
+    <common:FirstName>John</common:FirstName>
+    <common:MiddleName/>
+    <common:LastName>Doe</common:LastName>
+    <common:Email>john.doe@tylertech.com</common:Email>
+    <common:AdministrativeCopy>jane.doe@tylertech.com</common:AdministrativeCopy>
+    <common:Address>
+      <common:AddressLine1>6500 International Pkwy</common:AddressLine1>
+      <common:AddressLine2/>
+      <common:City>Plano</common:City>
+      <common:State>TX</common:State>
+      <common:ZipCode>75093</common:ZipCode>
+      <common:Country>US</common:Country>
+    </common:Address>
+    <common:PhoneNumber>9727133770</common:PhoneNumber>
+    <common:IsPublic>true</common:IsPublic>
+    <common:IsInFirmMasterList>true</common:IsInFirmMasterList>
+  </common:ServiceContact>
+</UpdateServiceContactRequest>

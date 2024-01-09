@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mstns:CreatePaymentAccountRequest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:common="urn:tyler:efm:services:schema:Common" xmlns:mstns="urn:tyler:efm:services:schema:CreatePaymentAccountRequest" xsi:schemaLocation="urn:tyler:efm:services:schema:CreatePaymentAccountRequest ..\..\..\Schema\Admin\CreatePaymentAccountRequest.xsd">
+	<common:PaymentAccount  PaymentAccountID="?" FirmID="?" PaymentAccountTypeCode="-136">
+		<common:AccountName>TEST BANK ACCOUNT</common:AccountName>
+		<common:PaymentAccountTypeCodeId>-135</common:PaymentAccountTypeCodeId>
+		<common:AccountToken>OFSDD</common:AccountToken>
+		<common:CourtIdentifier>QA2012</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2012CourtAtLaw</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2012CourtAtLaw1</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2012CourtAtLaw2</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2013</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2013CourtAtLaw</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2013CourtAtLaw1</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2013CourtAtLaw2</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2014</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2014CourtAtLaw</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2014CourtAtLaw1</common:CourtIdentifier>
+        <common:CourtIdentifier>QA2014CourtAtLaw2</common:CourtIdentifier>
+	</common:PaymentAccount>
+</mstns:CreatePaymentAccountRequest>
