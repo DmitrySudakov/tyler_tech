@@ -1,4 +1,11 @@
 {
 	"name": "tyler_tech",
-	"image": "mcr.microsoft.com/dotnet/sdk:6.0"
+	"image": "mcr.microsoft.com/dotnet/sdk:6.0",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp"
+			]
+		}
+	}
 }
