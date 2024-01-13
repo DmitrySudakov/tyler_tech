@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions targetNamespace="urn:tyler:ecf:v5.0:extensions:TylerFilingReviewMDE" xmlns:wsmp="urn:tyler:ecf:v5.0:extensions:TylerFilingReviewMDE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+	
+	<import namespace="urn:tyler:ecf:v5.0:extensions:TylerFilingReviewMDE" location="../schema/TylerFilingReviewMDE.wsdl"/>
+	<import namespace="urn:tyler:ecf:v5.0:extensions:criminal" location="..\..\schema\extension\criminal.xsd"/>
+	<import namespace="urn:tyler:ecf:v5.0:extensions:massachusetts" location="..\..\schema\extension\massachusetts.xsd"/>
+	<import namespace="urn:tyler:ecf:v5.0:extensions:taxdelinquency" location="..\..\schema\extension\taxdelinquency.xsd"/>
+	<service name="TylerFilingReviewMDEService">
+		<port name="TylerFilingReviewMDE" binding="wsmp:TylerFilingReviewMDESoap">
+			<soap:address location="https://localhost/..."/>
+		</port>
+	</service>
+</definitions>

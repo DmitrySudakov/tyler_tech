@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>GeneralOffenseCode</ShortName>
+    <LongName>GeneralOffenseCode</LongName>
+    <Version>42EC92BBFBA119B0962124B56CD0CB7E8A0927A98358A14AB8FA58220FBEE</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:GeneralOffenseCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:GeneralOffenseCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="statutecodeid" Use="optional">
+      <ShortName>Statute Code ID</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="efspcode" Use="optional">
+      <ShortName>EFSPCode</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9929</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Attempted.</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue>8862</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9929</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Attempted.</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9930</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Conspired</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9932</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>CSTS Attempt to Commit</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9933</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>CSTS Conspiracy to Commit</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9935</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>CSTS Renunciation of</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>9936</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>CSTS Solicitation to commit</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>12598</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Instanter</SimpleValue>
+      </Value>
+      <Value ColumnRef="statutecodeid">
+        <SimpleValue />
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>

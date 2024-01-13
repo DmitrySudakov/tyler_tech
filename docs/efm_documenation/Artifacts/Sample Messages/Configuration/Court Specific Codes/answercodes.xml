@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>AnswerCode</ShortName>
+    <LongName>AnswerCode</LongName>
+    <Version>557542C5BD73B12BB6BDC644C0F66BC00ECC50C43F19FE1579A79A669E3BDC8806424CCF48F3EF326E9D4D5F1F984EA75944F648D7D50D637DC8FDC931D9AE0A</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:AnswerCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:AnswerCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="answertext" Use="optional">
+      <ShortName>AnswerText</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="questionid" Use="optional">
+      <ShortName>QuestionID</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="efspcode" Use="optional">
+      <ShortName>EFSPCode</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>16083</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Answer 1</SimpleValue>
+      </Value>
+      <Value ColumnRef="answertext">
+        <SimpleValue>Yes</SimpleValue>
+      </Value>
+      <Value ColumnRef="questionid">
+        <SimpleValue>16087</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>16084</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Answer 2</SimpleValue>
+      </Value>
+      <Value ColumnRef="answertext">
+        <SimpleValue>No</SimpleValue>
+      </Value>
+      <Value ColumnRef="questionid">
+        <SimpleValue>16087</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>16085</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Answer 3</SimpleValue>
+      </Value>
+      <Value ColumnRef="answertext">
+        <SimpleValue>Unsure</SimpleValue>
+      </Value>
+      <Value ColumnRef="questionid">
+        <SimpleValue>16087</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>16089</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Answer 4</SimpleValue>
+      </Value>
+      <Value ColumnRef="answertext">
+        <SimpleValue>Yes</SimpleValue>
+      </Value>
+      <Value ColumnRef="questionid">
+        <SimpleValue>16088</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>16090</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Answer 5</SimpleValue>
+      </Value>
+      <Value ColumnRef="answertext">
+        <SimpleValue>No</SimpleValue>
+      </Value>
+      <Value ColumnRef="questionid">
+        <SimpleValue>16088</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>16091</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Answer 6</SimpleValue>
+      </Value>
+      <Value ColumnRef="answertext">
+        <SimpleValue>Unsure</SimpleValue>
+      </Value>
+      <Value ColumnRef="questionid">
+        <SimpleValue>16088</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>

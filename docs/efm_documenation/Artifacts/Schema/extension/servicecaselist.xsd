@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (http://www.altova.com) by Tyler Technologies (Tyler Technologies) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:servicecaselist="urn:tyler:ecf:v5.0:extensions:servicecaselist" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:niem-xs="http://release.niem.gov/niem/proxy/xsd/4.0/" xmlns:structures="http://release.niem.gov/niem/structures/4.0/" targetNamespace="urn:tyler:ecf:v5.0:extensions:servicecaselist" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" schemaLocation="..\ecf.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/niem-core/4.0/" schemaLocation="..\niem\niem-core\4.0\niem-core.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/proxy/xsd/4.0/" schemaLocation="..\niem\proxy\xsd\4.0\xs.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/structures/4.0/" schemaLocation="..\niem\utility\structures\4.0\structures.xsd"/>
+	<xs:complexType name="GetServiceCaseListMessageType">
+		<xs:annotation>
+			<xs:documentation>Message to retrieve cases attached to a service contact.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ecf:RequestMessageType">
+				<xs:sequence>
+					<xs:element ref="ecf:ServiceRecipientID" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="servicecaselist:GetServiceCaseListMessageAugmentationPoint" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="GetServiceCaseListMessage" type="servicecaselist:GetServiceCaseListMessageType">
+		<xs:annotation>
+			<xs:documentation>Message to retrieve cases attached to a service contact.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GetServiceCaseListMessageAugmentationPoint" abstract="true">
+		<xs:annotation>
+			<xs:documentation>An extension point for the enclosing message.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

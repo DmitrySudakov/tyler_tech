@@ -1,0 +1,6 @@
+<BaseResponse xmlns="urn:tyler:efm:services:schema:BaseResponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:common="urn:tyler:efm:services:schema:Common" xsi:schemaLocation="urn:tyler:efm:services:schema:BaseResponse ..\..\..\Schema\Admin\BaseResponse.xsd">
+	<Error xmlns="urn:tyler:efm:services:schema:BaseResponse">
+		<ErrorCode xmlns="urn:tyler:efm:services:schema:Common">0</ErrorCode>
+		<ErrorText xmlns="urn:tyler:efm:services:schema:Common">No Error</ErrorText>
+	</Error>
+</BaseResponse>

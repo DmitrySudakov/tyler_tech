@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (http://www.altova.com) by Tyler Technologies (Tyler Technologies) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:securecase="urn:tyler:ecf:v5.0:extensions:securecase" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:niem-xs="http://release.niem.gov/niem/proxy/xsd/4.0/" xmlns:structures="http://release.niem.gov/niem/structures/4.0/" targetNamespace="urn:tyler:ecf:v5.0:extensions:securecase" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" schemaLocation="..\ecf.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/niem-core/4.0/" schemaLocation="..\niem\niem-core\4.0\niem-core.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/proxy/xsd/4.0/" schemaLocation="..\niem\proxy\xsd\4.0\xs.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/structures/4.0/" schemaLocation="..\niem\utility\structures\4.0\structures.xsd"/>
+	<xs:complexType name="SecureCaseMessageType">
+		<xs:annotation>
+			<xs:documentation>Message to secure a case.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="ecf:RequestMessageType">
+				<xs:sequence>
+					<xs:element ref="ecf:CaseTrackingID" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="securecase:IsSecure" minOccurs="1" maxOccurs="1"/>
+					<xs:element ref="securecase:SecureCaseMessageAugmentationPoint" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="SecureCaseMessage" type="securecase:SecureCaseMessageType">
+		<xs:annotation>
+			<xs:documentation>Message to secure a case.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="IsSecure" type="niem-xs:boolean"/>
+	<xs:element name="SecureCaseMessageAugmentationPoint" abstract="true">
+		<xs:annotation>
+			<xs:documentation>An extension point for the enclosing message.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

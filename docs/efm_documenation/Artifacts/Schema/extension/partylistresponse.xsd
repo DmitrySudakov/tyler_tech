@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="urn:tyler:ecf:v5.0:extensions:partylistresponse" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:niem-xs="http://release.niem.gov/niem/proxy/xsd/4.0/" targetNamespace="urn:tyler:ecf:v5.0:extensions:partylistresponse">
+	<xs:import namespace="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" schemaLocation="../ecf.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/domains/jxdm/6.1/" schemaLocation="../niem/domains/jxdm/6.1/jxdm.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/niem-core/4.0/" schemaLocation="../niem/niem-core/4.0/niem-core.xsd"/>
+	<xs:import namespace="http://release.niem.gov/niem/proxy/xsd/4.0/" schemaLocation="../niem/proxy/xsd/4.0/xs.xsd"/>
+	<xs:complexType name="GetPartyListResponseMessageType">
+		<xs:complexContent>
+			<xs:extension base="ecf:ResponseMessageType">
+				<xs:sequence>
+					<xs:element ref="Party" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="GetPartyListResponseMessage" type="GetPartyListResponseMessageType"/>
+	<xs:element name="Party" type="nc:EntityType"/>
+</xs:schema>

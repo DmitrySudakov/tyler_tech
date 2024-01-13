@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="urn:tyler:efm:services:schema:AuthenticateRequest" xmlns:mstns="urn:tyler:efm:services:schema:AuthenticateRequest" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:base="urn:tyler:efm:services:schema:BaseRequest" xmlns:common="urn:tyler:efm:services:schema:Common" targetNamespace="urn:tyler:efm:services:schema:AuthenticateRequest" elementFormDefault="qualified" id="AuthenticateRequest">
+	<xs:import namespace="urn:tyler:efm:services:schema:BaseRequest" schemaLocation="BaseRequest.xsd"/>
+	<xs:import namespace="urn:tyler:efm:services:schema:Common" schemaLocation="Common.xsd"/>
+	<xs:complexType name="AuthenticateRequestType">
+		<xs:complexContent>
+			<xs:extension base="base:BaseRequestType">
+				<xs:sequence>
+					<xs:element name="Email" type="common:REQUIRED_STRING"/>
+					<xs:element name="Password" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="AuthenticateRequest" type="AuthenticateRequestType"/>
+</xs:schema>

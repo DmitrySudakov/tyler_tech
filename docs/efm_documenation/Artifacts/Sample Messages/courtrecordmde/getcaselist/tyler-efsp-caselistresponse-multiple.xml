@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<caselistresponse:GetCaseListResponseMessage xmlns:structures="http://release.niem.gov/niem/structures/4.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:caselistresponse="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/caselistresponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/caselistresponse ../../../schema/caselistresponse.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance, assigned by the FAMDE. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingReview</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>http://example.com/efsp1</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt>
+		<nc:OrganizationIdentification>
+			<!-- Identifier that maps to a node -->
+			<nc:IdentificationID>harris:dc</nc:IdentificationID>
+		</nc:OrganizationIdentification>
+	</j:CaseCourt>
+	<!-- DocumentPostDate is required and is the datetime for the response -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2021-05-24T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<cbrn:MessageStatus cbrn:systemSimulatedIndicator="false">
+		<cbrn:SystemEventDateTime>2007-06-06T14:20:47.0Z</cbrn:SystemEventDateTime>
+		<cbrn:SystemOperatingModeCode>Ops</cbrn:SystemOperatingModeCode>
+		<cbrn:CredentialsAuthenticatedCode>Authenticated</cbrn:CredentialsAuthenticatedCode>
+		<cbrn:MessageStatusCode>Success</cbrn:MessageStatusCode>
+		<cbrn:MessageHandlingError>
+			<cbrn:ErrorCodeText>0</cbrn:ErrorCodeText>
+		</cbrn:MessageHandlingError>
+		<cbrn:ResendRequestIndicator>false</cbrn:ResendRequestIndicator>
+		<!-- Present if the court location is in a blackout -->
+		<MessageStatusAugmentation xmlns="urn:tyler:ecf:v5.0:extensions:common" xsi:schemaLocation="urn:tyler:ecf:v5.0:extensions:common ../../../schema/extension/common.xsd">
+			<BlackoutStatus>
+				<j:CaseCourt>
+					<nc:OrganizationIdentification>
+						<nc:IdentificationID>QA2012</nc:IdentificationID>
+					</nc:OrganizationIdentification>
+				</j:CaseCourt>
+				<ReasonDescriptionText>Test</ReasonDescriptionText>
+				<BlackoutDate>
+					<nc:StartDate>
+						<nc:DateTime>2023-07-28T14:45:41.0Z</nc:DateTime>
+					</nc:StartDate>
+					<nc:EndDate>
+						<nc:DateTime>2023-07-29T14:45:41.0Z</nc:DateTime>
+					</nc:EndDate>
+				</BlackoutDate>
+			</BlackoutStatus>
+		</MessageStatusAugmentation>
+	</cbrn:MessageStatus>
+	<nc:Case>
+		<nc:CaseTitleText>Jane Doe vs. John Doe </nc:CaseTitleText>
+		<j:CaseAugmentation>
+			<j:CaseCourt>
+				<nc:OrganizationIdentification>
+					<!-- Identifier that maps to a node -->
+					<nc:IdentificationID>harris:dc</nc:IdentificationID>
+				</nc:OrganizationIdentification>
+			</j:CaseCourt>
+		</j:CaseAugmentation>
+		<ecf:CaseAugmentation>
+			<!-- The case category code id -->
+			<ecf:CaseCategoryCode>7</ecf:CaseCategoryCode>
+			<ecf:CaseTrackingID>
+				<!-- The EFM identifier for the case -->
+				<nc:IdentificationID>29209abb-0519-45d2-a30d-76893d139bd1</nc:IdentificationID>
+			</ecf:CaseTrackingID>
+			<!-- The case type code id -->
+			<ecf:CaseTypeCode>545</ecf:CaseTypeCode>
+			<!-- The case number -->
+			<j:CaseNumberText>CV-2021-1</j:CaseNumberText>
+		</ecf:CaseAugmentation>
+	</nc:Case>
+	<nc:Case>
+		<nc:CaseTitleText>Jane Doe vs. John Doe </nc:CaseTitleText>
+		<j:CaseAugmentation>
+			<j:CaseCourt>
+				<nc:OrganizationIdentification>
+					<!-- Identifier that maps to a node -->
+					<nc:IdentificationID>harris:cc</nc:IdentificationID>
+				</nc:OrganizationIdentification>
+			</j:CaseCourt>
+		</j:CaseAugmentation>
+		<ecf:CaseAugmentation>
+			<!-- The case category code id -->
+			<ecf:CaseCategoryCode>7</ecf:CaseCategoryCode>
+			<ecf:CaseTrackingID>
+				<!-- The EFM identifier for the case -->
+				<nc:IdentificationID>29209abb-0519-45d2-a30d-76893d139bd2</nc:IdentificationID>
+			</ecf:CaseTrackingID>
+			<!-- The case type code id -->
+			<ecf:CaseTypeCode>545</ecf:CaseTypeCode>
+			<!-- The case number -->
+			<j:CaseNumberText>CV-2021-2</j:CaseNumberText>
+		</ecf:CaseAugmentation>
+	</nc:Case>
+</caselistresponse:GetCaseListResponseMessage>

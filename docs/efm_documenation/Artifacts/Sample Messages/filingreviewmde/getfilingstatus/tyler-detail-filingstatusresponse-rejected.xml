@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filingstatusresponse:GetFilingStatusResponseMessage xmlns:structures="http://release.niem.gov/niem/structures/4.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:common="urn:tyler:ecf:v5.0:extensions:common" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:filingstatusresponse="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/filingstatusresponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/filingstatusresponse ../../../schema/filingstatusresponse.xsd urn:tyler:ecf:v5.0:extensions:common ../../../schema/extension/common.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingAssembly</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>https://efilingmanager.com:8000</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<!-- CaseCourt is required by schema but unused -->
+	<j:CaseCourt/>
+	<!-- DocumentPostDate is required and is the datetime for the response -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<cbrn:MessageStatus cbrn:systemSimulatedIndicator="false">
+		<cbrn:SystemEventDateTime>2017-01-07T13:47:42.0Z</cbrn:SystemEventDateTime>
+		<cbrn:SystemOperatingModeCode>Ops</cbrn:SystemOperatingModeCode>
+		<cbrn:CredentialsAuthenticatedCode>Authenticated</cbrn:CredentialsAuthenticatedCode>
+		<cbrn:MessageStatusCode>Success</cbrn:MessageStatusCode>
+		<cbrn:MessageHandlingError>
+			<cbrn:ErrorCodeText>0</cbrn:ErrorCodeText>
+		</cbrn:MessageHandlingError>
+		<cbrn:ResendRequestIndicator>false</cbrn:ResendRequestIndicator>
+	</cbrn:MessageStatus>
+	<ecf:MatchingFiling>
+		<common:MatchingFilingAugmentation>
+			<!-- The original envelope from which this envelope was copied -->
+			<common:OriginalEnvelopeID>
+				<nc:IdentificationID>1</nc:IdentificationID>
+			</common:OriginalEnvelopeID>
+			<!-- The original parent order -->
+			<common:ParentEnvelope>
+				<!-- The envelope number for the parent order -->
+				<common:EnvelopeID>1</common:EnvelopeID>
+				<!-- The filing identifiers for the parent order -->
+				<common:FilingID>bf19879d-0e13-4a5b-80a7-e05a141eafba</common:FilingID>
+				<common:FilingID>bf19879d-0e13-4a5b-80a7-e05a141eafbb</common:FilingID>
+			</common:ParentEnvelope>
+			<!-- The child envelopes for this order -->
+			<common:ChildEnvelope>
+				<!-- A child envelope for this order, may repeat -->
+				<common:Child>
+					<!-- The envelope number for this child order -->
+					<common:EnvelopeID>2</common:EnvelopeID>
+					<!-- The filing identifiers for this child order -->
+					<common:FilingID>cf19879d-0e13-4a5b-80a7-e05a141eafbf</common:FilingID>
+				</common:Child>
+			</common:ChildEnvelope>
+			<!-- The filer type code id -->
+			<common:FilerTypeCode>788</common:FilerTypeCode>
+			<common:CrossReference>
+				<!-- The cross reference number -->
+				<common:ReferenceNumber>111111</common:ReferenceNumber>
+				<!-- The cross reference type code id -->
+				<common:ReferenceTypeCode>988</common:ReferenceTypeCode>
+			</common:CrossReference>
+			<!-- An envelope level comment -->
+			<common:EnvelopeLevelComment>This is my envelope</common:EnvelopeLevelComment>
+			<!-- Details about the payment such as non-sensitive payment account information, total amount, and tracking numbers -->
+			<common:Payment>
+				<common:AccountName>My Visa</common:AccountName>
+				<common:WaiverIndicator>false</common:WaiverIndicator>
+				<common:CardType>VISA</common:CardType>
+				<common:CardLast4>3390</common:CardLast4>
+				<common:ExpirationMonth>12</common:ExpirationMonth>
+				<common:ExpirationYear>2023</common:ExpirationYear>
+				<common:TransactionAmount>
+					<nc:Amount>35.00</nc:Amount>
+				</common:TransactionAmount>
+				<common:TransactionID>2250</common:TransactionID>
+				<common:OrderID>0000132890</common:OrderID>
+			</common:Payment>
+			<common:ServiceRecipient>
+				<!-- The EFM service contact identifier -->
+				<common:ServiceContactID>
+					<nc:IdentificationID/>
+				</common:ServiceContactID>
+				<!-- Indicates the status of service for this recipient, values are Sent, Not Sent, Error -->
+				<common:Status>Sent</common:Status>
+				<!-- The case party this service contact is linked to -->
+				<ecf:CaseRepresentedParty structures:ref="Party1"/>
+				<common:RecipientPerson>
+					<nc:EntityPerson>
+						<nc:PersonName>
+							<nc:PersonGivenName>Steve</nc:PersonGivenName>
+							<nc:PersonSurName>Smith</nc:PersonSurName>
+						</nc:PersonName>
+						<ecf:PersonAugmentation>
+							<nc:ContactInformation>
+								<nc:ContactEmailID>steve.smith@email.com</nc:ContactEmailID>
+							</nc:ContactInformation>
+						</ecf:PersonAugmentation>
+					</nc:EntityPerson>
+				</common:RecipientPerson>
+				<common:FirmName>Smith Law</common:FirmName>
+				<common:ServiceOpenedIndicator>true</common:ServiceOpenedIndicator>
+				<!-- Date/time the document was opened from the service email link -->
+				<common:OpenedDate>
+					<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+				</common:OpenedDate>
+			</common:ServiceRecipient>
+			<!-- The fees associated with the envelope and all of its filings -->
+			<common:EnvelopeFee>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Convenience Fee</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">5.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Court Case Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ID/>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Court Party Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">12.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Court Filing Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Filing &amp; Service Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">10.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+				    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+				    <cbc:AllowanceChargeReason>Total Mail Service Fee</cbc:AllowanceChargeReason>
+				    <cbc:Amount currencyID="USD">12</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Service Tax Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.62</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ID/>
+					<cbc:ChargeIndicator xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Service Tax Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.22</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Court Service Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">1.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ID/>
+					<cbc:ChargeIndicator xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">false</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Redaction Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Provider Service Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">1.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Total Provider Tax Fees</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.06</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Grand Total</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">29.68</cbc:Amount>
+				</cac:AllowanceCharge>
+			</common:EnvelopeFee>
+			<!-- The fees associated with this filing -->
+			<common:FilingFee>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Court Fee</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+					<cbc:ChargeIndicator>false</cbc:ChargeIndicator>
+					<cbc:AllowanceChargeReason>Filing &amp; Service Fee</cbc:AllowanceChargeReason>
+					<cbc:Amount currencyID="USD">0.00</cbc:Amount>
+				</cac:AllowanceCharge>
+				<cac:AllowanceCharge>
+				    <cbc:ChargeIndicator>true</cbc:ChargeIndicator>
+				    <cbc:AllowanceChargeReason>Mail Service Fee</cbc:AllowanceChargeReason>
+				    <cbc:Amount currencyID="USD">6</cbc:Amount>
+				</cac:AllowanceCharge>
+			</common:FilingFee>
+			<!-- The filing attorney if any -->
+			<common:FilingAttorney>
+				<common:AttorneyReference structures:ref="Attorney1"/>
+			</common:FilingAttorney>
+			<!-- The filing party if any -->
+			<common:FilingParty>
+				<common:PartyReference structures:ref="Party1"/>
+			</common:FilingParty>
+			<!-- The max fee amount for the envelope -->
+			<common:MaxFeeAmount>
+				<nc:Amount>1000</nc:Amount>
+			</common:MaxFeeAmount>
+		</common:MatchingFilingAugmentation>
+		<!-- The envelope number -->
+		<nc:DocumentIdentification>
+			<nc:IdentificationID>16200</nc:IdentificationID>
+			<nc:IdentificationCategoryDescriptionText>envelopeID</nc:IdentificationCategoryDescriptionText>
+		</nc:DocumentIdentification>
+		<!-- The EFM filing identifier -->
+		<nc:DocumentIdentification>
+			<nc:IdentificationID>bf19879d-0e13-4a5b-80a7-e05a141eafbf</nc:IdentificationID>
+			<nc:IdentificationCategoryDescriptionText>filingID</nc:IdentificationCategoryDescriptionText>
+		</nc:DocumentIdentification>
+		<!-- The filing submitter -->
+		<nc:DocumentSubmitter>
+			<nc:EntityPerson>
+				<nc:PersonName>
+					<nc:PersonFullName>Stephen Edward Ambrose</nc:PersonFullName>
+				</nc:PersonName>
+				<ecf:PersonAugmentation>
+					<nc:ContactInformation>
+						<nc:ContactEmailID>stephen.ambrose@email.com</nc:ContactEmailID>
+					</nc:ContactInformation>
+				</ecf:PersonAugmentation>
+				<common:PersonAugmentation>
+					<common:FirmName>Parker Smith</common:FirmName>
+				</common:PersonAugmentation>
+			</nc:EntityPerson>
+		</nc:DocumentSubmitter>
+		<!-- SendingMDELocationID within MatchingFiling is required by schema but unused -->
+		<ecf:SendingMDELocationID/>
+		<!-- ServiceInteractionProfileCode within MatchingFiling is required by schema but unused -->
+		<ecf:ServiceInteractionProfileCode/>
+		<j:CaseCourt>
+			<nc:OrganizationIdentification>
+				<!-- Identifier that maps to a node -->
+				<nc:IdentificationID>harris:dc</nc:IdentificationID>
+			</nc:OrganizationIdentification>
+		</j:CaseCourt>
+		<!-- DocumentPostDate within MatchingFiling contains the submission date/time for the filing -->
+		<nc:DocumentPostDate>
+			<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+		</nc:DocumentPostDate>
+		<!--  Represents an additional document -->
+		<ecf:ConnectedDocumentReview>
+			<!-- DocumentReviewDisposition is required by schema but unused -->
+			<ecf:DocumentReviewDisposition/>
+			<ecf:ReviewedDocument>
+				<!-- DocumentIdentification below is required by schema but unused -->
+				<nc:DocumentIdentification/>
+				<ecf:DocumentAugmentation>
+					<ecf:DocumentRendition>
+						<!-- DocumentIdentification below is required by schema but unused -->
+						<nc:DocumentIdentification/>
+						<nc:Attachment structures:id="Document2">
+							<common:AttachmentAugmentation>
+								<!-- The filing component code id -->
+								<common:FilingComponentCode>332</common:FilingComponentCode>
+								<!-- The number of pages in the document -->
+								<common:PageCount>20</common:PageCount>
+								<!-- The original file name of the document -->
+								<common:OriginalFileName>Transmitted - test3pdf.pdf</common:OriginalFileName>
+								<!-- Indicates if the document has been redacted -->
+								<common:IsRedactedIndicator>false</common:IsRedactedIndicator>
+							</common:AttachmentAugmentation>
+							<!-- The description of the document -->
+							<nc:BinaryDescriptionText>Document description</nc:BinaryDescriptionText>
+							<!-- The url to download the document -->
+							<nc:BinaryURI>https://someurl</nc:BinaryURI>
+							<!-- The size of the document in bytes -->
+							<nc:BinarySizeValue>32000</nc:BinarySizeValue>
+						</nc:Attachment>
+					</ecf:DocumentRendition>
+					<!-- The document type code id -->
+					<ecf:DocumentTypeCode>677</ecf:DocumentTypeCode>
+					<nc:DocumentAssociation>
+						<nc:PrimaryDocument structures:ref="Document1">
+							<nc:DocumentIdentification/>
+						</nc:PrimaryDocument>
+						<ecf:DocumentAssociationAugmentation>
+							<!-- DocumentRelatedCode indicates the type of relationship, this will always be parent -->
+							<ecf:DocumentRelatedCode>parent</ecf:DocumentRelatedCode>
+						</ecf:DocumentAssociationAugmentation>
+					</nc:DocumentAssociation>
+				</ecf:DocumentAugmentation>
+			</ecf:ReviewedDocument>
+		</ecf:ConnectedDocumentReview>
+		<!-- The filing status -->
+		<ecf:FilingStatus>
+			<common:FilingStatusAugmentation>
+				<!-- If docketed, the docket date/time -->
+				<common:DocketDate>
+					<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+				</common:DocketDate>
+				<!-- If accepted, the accepted date/time -->
+				<common:AcceptDate>
+					<nc:DateTime>2007-06-06T14:20:47.0Z</nc:DateTime>
+				</common:AcceptDate>
+				<!-- The accept/reject comments -->
+				<common:ReviewCommentsText>Bad Document</common:ReviewCommentsText>
+				<!-- If rejected, the rejection reason code description -->
+				<common:RejectReasonCode>Invalid or Incorrect Document</common:RejectReasonCode>
+			</common:FilingStatusAugmentation>
+			<!-- StatusText displays a user-friendly description of the FilingReviewStatusCode -->
+			<nc:StatusDescriptionText>filing has been rejected</nc:StatusDescriptionText>
+			<ecf:FilingReviewStatusCode>rejected</ecf:FilingReviewStatusCode>
+		</ecf:FilingStatus>
+		<!-- Represents the filing -->
+		<ecf:LeadDocumentReview>
+			<!-- DocumentReviewDisposition is required by schema but unused -->
+			<ecf:DocumentReviewDisposition/>
+			<ecf:ReviewedDocument>
+				<!-- Filing Description -->
+				<nc:DocumentDescriptionText>Motion</nc:DocumentDescriptionText>
+				<!-- DocumentIdentification below is required by schema but unused -->
+				<nc:DocumentIdentification/>
+				<ecf:DocumentAugmentation>
+					<ecf:DocumentRendition>
+						<!-- DocumentIdentification below is required by schema but unused -->
+						<nc:DocumentIdentification/>
+						<nc:Attachment structures:id="Document1">
+							<common:AttachmentAugmentation>
+								<!-- The filing component code id -->
+								<common:FilingComponentCode>332</common:FilingComponentCode>
+								<!-- The number of pages in the document -->
+								<common:PageCount>20</common:PageCount>
+								<!-- The original file name of the document -->
+								<common:OriginalFileName>Original - test3pdf.pdf</common:OriginalFileName>
+								<!-- Indicates if the document has been redacted -->
+								<common:IsRedactedIndicator>false</common:IsRedactedIndicator>
+							</common:AttachmentAugmentation>
+							<!-- The description of the document -->
+							<nc:BinaryDescriptionText>Document description</nc:BinaryDescriptionText>
+							<!-- The url to download the document -->
+							<nc:BinaryURI>https://someurl</nc:BinaryURI>
+							<!-- The size of the document in bytes -->
+							<nc:BinarySizeValue>32000</nc:BinarySizeValue>
+						</nc:Attachment>
+					</ecf:DocumentRendition>
+					<!-- The document type code id -->
+					<ecf:DocumentTypeCode>677</ecf:DocumentTypeCode>
+					<!-- The filing code id -->
+					<ecf:RegisterActionDescriptionCode>411</ecf:RegisterActionDescriptionCode>
+				</ecf:DocumentAugmentation>
+				<common:DocumentAugmentation>
+					<!-- The filer comments -->
+					<common:FilingCommentsText>Some filer comments</common:FilingCommentsText>
+					<!-- The motion type code id -->
+					<common:MotionTypeCode>981</common:MotionTypeCode>
+				</common:DocumentAugmentation>
+			</ecf:ReviewedDocument>
+		</ecf:LeadDocumentReview>
+		<nc:Case>
+			<!-- The case title -->
+			<nc:CaseTitleText>Test vs Test</nc:CaseTitleText>
+			<j:CaseAugmentation>
+				<j:CaseCourt>
+					<nc:OrganizationIdentification>
+						<!-- Identifier that maps to a node -->
+						<nc:IdentificationID>harris:dc</nc:IdentificationID>
+					</nc:OrganizationIdentification>
+				</j:CaseCourt>
+				<!-- A scheduling event being returned from the cms -->
+				<j:CaseCourtEvent>
+					<common:CourtEventAugmentation>
+						<!-- The hearing start/end time -->
+						<common:CourtSchedule>
+							<common:ScheduleDayStartTime>
+								<nc:DateTime>2007-06-10T14:00:00.0Z</nc:DateTime>
+							</common:ScheduleDayStartTime>
+							<common:ScheduleDayEndTime>
+								<nc:DateTime>2007-06-10T15:00:00.0Z</nc:DateTime>
+							</common:ScheduleDayEndTime>
+						</common:CourtSchedule>
+						<!-- The hearing room -->
+						<common:CourtRoom>Room 100</common:CourtRoom>
+						<!-- The hearing location street -->
+						<common:CourtStreet>100 Main Street</common:CourtStreet>
+						<!-- The hearing location city,state,zip -->
+						<common:CourtCityStateZip>Austin, TX 75028</common:CourtCityStateZip>
+					</common:CourtEventAugmentation>
+				</j:CaseCourtEvent>
+				<j:CaseJudge>
+					<nc:RoleOfPerson>
+						<nc:PersonName>
+							<!-- The judge name if available -->
+							<nc:PersonFullName>Judge Judy</nc:PersonFullName>
+						</nc:PersonName>
+					</nc:RoleOfPerson>
+				</j:CaseJudge>
+				<j:CaseOfficial>
+					<nc:RoleOfPerson structures:id="Attorney1">
+						<nc:PersonName>
+							<nc:PersonGivenName>Perry</nc:PersonGivenName>
+							<nc:PersonSurName>Mason</nc:PersonSurName>
+						</nc:PersonName>
+						<ecf:PersonAugmentation>
+							<ecf:ParticipantID>
+								<!-- EFM Attorney Identifier -->
+								<nc:IdentificationID>51C33A70-C72F-41EE-AC90-6345E84C25FA</nc:IdentificationID>
+							</ecf:ParticipantID>
+						</ecf:PersonAugmentation>
+					</nc:RoleOfPerson>
+					<ecf:CaseOfficialAugmentation>
+						<ecf:CaseRepresentedParty structures:ref="Party1"/>
+					</ecf:CaseOfficialAugmentation>
+				</j:CaseOfficial>
+			</j:CaseAugmentation>
+			<ecf:CaseAugmentation>
+				<!-- The case category code id -->
+				<ecf:CaseCategoryCode>7</ecf:CaseCategoryCode>
+				<ecf:CaseParty>
+					<nc:EntityPerson structures:id="Party1">
+						<nc:PersonName>
+							<nc:PersonGivenName>Tom</nc:PersonGivenName>
+							<nc:PersonSurName>Hardy</nc:PersonSurName>
+						</nc:PersonName>
+						<ecf:PersonAugmentation>
+							<!-- The party type code id -->
+							<ecf:CaseParticipantRoleCode>527</ecf:CaseParticipantRoleCode>
+							<!-- EFM case party identifier -->
+							<ecf:ParticipantID>
+								<nc:IdentificationID>64c6e3e8-fa76-4a89-894d-7ed1bf349ef7</nc:IdentificationID>
+							</ecf:ParticipantID>
+						</ecf:PersonAugmentation>
+					</nc:EntityPerson>
+				</ecf:CaseParty>
+				<!-- The EFM case identifier -->
+				<ecf:CaseTrackingID>
+					<nc:IdentificationID>bf19879d-0e13-4a5b-80a7-e05a141eafbf</nc:IdentificationID>
+				</ecf:CaseTrackingID>
+				<!-- The case type code id -->
+				<ecf:CaseTypeCode>545</ecf:CaseTypeCode>
+				<!-- The case number -->
+				<j:CaseNumberText>CV-2012-0144</j:CaseNumberText>
+			</ecf:CaseAugmentation>
+		</nc:Case>
+	</ecf:MatchingFiling>
+</filingstatusresponse:GetFilingStatusResponseMessage>

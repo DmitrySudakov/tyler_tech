@@ -1,0 +1,3 @@
+<SelfResendActivationEmailRequest xmlns="urn:tyler:efm:services:schema:ResendActivationEmailRequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:tyler:efm:services:schema:ResendActivationEmailRequest ..\..\..\Schema\Admin\SelfResendActivationEmailRequest.xsd">
+	<Email>john.doe@email.com</Email>
+</SelfResendActivationEmailRequest>

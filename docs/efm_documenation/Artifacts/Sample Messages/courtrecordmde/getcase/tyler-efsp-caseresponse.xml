@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wrapper:GetCaseResponse xmlns:wrapper="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/wrappers" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/wrappers ../../../schema/wrappers.xsd">
+<caseresponse:GetCaseResponseMessage xmlns:structures="http://release.niem.gov/niem/structures/4.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:cbrn="http://release.niem.gov/niem/domains/cbrn/4.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:common="urn:tyler:ecf:v5.0:extensions:common" xmlns:caseresponse="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/caseresponse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/caseresponse ../../../schema/caseresponse.xsd urn:tyler:ecf:v5.0:extensions:common ../../../schema/extension/common.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance, assigned by the FAMDE. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingAssembly</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<nc:IdentificationID>https://efilingmanager.com:8000</nc:IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt>
+		<nc:OrganizationIdentification>
+			<!-- Identifier that maps to a node -->
+			<nc:IdentificationID>harris:dc</nc:IdentificationID>
+		</nc:OrganizationIdentification>
+	</j:CaseCourt>
+	<!-- DocumentPostDate is required and is the datetime for the request -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2021-05-24T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<cbrn:MessageStatus cbrn:systemSimulatedIndicator="false">
+		<cbrn:SystemEventDateTime>2021-05-24T14:20:47.0Z</cbrn:SystemEventDateTime>
+		<cbrn:SystemOperatingModeCode>Ops</cbrn:SystemOperatingModeCode>
+		<cbrn:CredentialsAuthenticatedCode>Authenticated</cbrn:CredentialsAuthenticatedCode>
+		<cbrn:MessageStatusCode>Success</cbrn:MessageStatusCode>
+		<cbrn:MessageHandlingError>
+			<cbrn:ErrorCodeText>0</cbrn:ErrorCodeText>
+		</cbrn:MessageHandlingError>
+		<cbrn:ResendRequestIndicator>false</cbrn:ResendRequestIndicator>
+			<!-- Present if the court location is in a blackout -->
+			<MessageStatusAugmentation xmlns="urn:tyler:ecf:v5.0:extensions:common" xsi:schemaLocation="urn:tyler:ecf:v5.0:extensions:common ../../../schema/extension/common.xsd">
+			<BlackoutStatus>
+				<j:CaseCourt>
+					<nc:OrganizationIdentification>
+						<nc:IdentificationID>QA2012</nc:IdentificationID>
+					</nc:OrganizationIdentification>
+				</j:CaseCourt>
+				<ReasonDescriptionText>Test</ReasonDescriptionText>
+				<BlackoutDate>
+					<nc:StartDate>
+						<nc:DateTime>2023-07-28T14:45:41.0Z</nc:DateTime>
+					</nc:StartDate>
+					<nc:EndDate>
+						<nc:DateTime>2023-07-29T14:45:41.0Z</nc:DateTime>
+					</nc:EndDate>
+				</BlackoutDate>
+			</BlackoutStatus>
+		</MessageStatusAugmentation>
+	</cbrn:MessageStatus>
+	<nc:Case>
+		<nc:CaseTitleText>Jane Doe vs. John Doe </nc:CaseTitleText>
+		<j:CaseAugmentation>
+			<j:CaseCourt>
+				<nc:OrganizationIdentification>
+					<!-- Identifier that maps to a node -->
+					<nc:IdentificationID>harris:dc</nc:IdentificationID>
+				</nc:OrganizationIdentification>
+			</j:CaseCourt>
+			<j:CaseJudge>
+				<nc:RoleOfPerson>
+					<nc:PersonName>
+						<nc:PersonFullName>Judge Judy</nc:PersonFullName>
+					</nc:PersonName>
+				</nc:RoleOfPerson>
+			</j:CaseJudge>
+			<j:CaseOfficial>
+				<nc:RoleOfPerson structures:id="Attorney1">
+					<nc:PersonName>
+						<nc:PersonGivenName>John</nc:PersonGivenName>
+						<nc:PersonSurName>Stevens</nc:PersonSurName>
+					</nc:PersonName>
+					<common:PersonAugmentation>
+						<!-- The EFM attorney identifier -->
+						<common:AttorneyIdentification>
+							<nc:IdentificationID>a013bfc2-9f39-4c38-87b3-a05132555c79</nc:IdentificationID>
+						</common:AttorneyIdentification>
+					</common:PersonAugmentation>
+				</nc:RoleOfPerson>
+				<j:JudicialOfficialBarMembership>
+					<!-- The attorney bar number -->
+					<j:JudicialOfficialBarIdentification>
+						<nc:IdentificationID>1001</nc:IdentificationID>
+					</j:JudicialOfficialBarIdentification>
+				</j:JudicialOfficialBarMembership>
+				<ecf:CaseOfficialAugmentation>
+					<ecf:CaseRepresentedParty structures:ref="Party1"/>
+				</ecf:CaseOfficialAugmentation>
+				<common:CaseOfficialAugmentation>
+					<common:IsLead>true</common:IsLead>
+				</common:CaseOfficialAugmentation>
+			</j:CaseOfficial>
+		</j:CaseAugmentation>
+		<ecf:CaseAugmentation>
+			<ecf:CaseCategoryCode>7</ecf:CaseCategoryCode>
+			<ecf:CaseParty>
+				<nc:EntityPerson structures:id="Party1">
+					<nc:PersonName>
+						<nc:PersonGivenName>John</nc:PersonGivenName>
+						<nc:PersonMiddleName>W.</nc:PersonMiddleName>
+						<nc:PersonSurName>Doe</nc:PersonSurName>
+					</nc:PersonName>
+					<ecf:PersonAugmentation>
+						<!-- The party type code id -->
+						<ecf:CaseParticipantRoleCode>527</ecf:CaseParticipantRoleCode>
+						<nc:ContactInformation>
+							<nc:ContactMailingAddress>
+								<!-- Augmentation used to provide an address line 2 -->
+								<common:AddressAugmentation>
+									<common:AddressSecondaryLine>Apt 100</common:AddressSecondaryLine>
+								</common:AddressAugmentation>
+								<nc:LocationStreet>
+									<nc:StreetFullText>123 Main St.</nc:StreetFullText>
+								</nc:LocationStreet>
+								<nc:LocationCityName>Anytown</nc:LocationCityName>
+								<nc:LocationState>
+									<nc:LocationStateName>IN</nc:LocationStateName>
+								</nc:LocationState>
+								<nc:LocationCountry>
+									<nc:LocationCountryName>US</nc:LocationCountryName>
+								</nc:LocationCountry>
+								<nc:LocationPostalCode>12345</nc:LocationPostalCode>
+							</nc:ContactMailingAddress>
+						</nc:ContactInformation>
+					</ecf:PersonAugmentation>
+					<common:PersonAugmentation>
+						<!-- The EFM party identifier -->
+						<common:PartyIdentification>
+							<nc:IdentificationID>b013bfc2-9f39-4c38-87b3-a05132555c79</nc:IdentificationID>
+						</common:PartyIdentification>
+						<common:FilerIdentification>
+							<nc:IdentificationID>23111</nc:IdentificationID>
+						</common:FilerIdentification>						
+						<!-- Agency indicates this party is attached to an agency -->
+						<common:Agency>
+							<common:FirmID>c013bfc2-9f39-4c38-87b3-a05132555c79</common:FirmID>
+						</common:Agency>
+					</common:PersonAugmentation>
+				</nc:EntityPerson>
+			</ecf:CaseParty>
+			<ecf:CaseParty>
+				<nc:EntityPerson structures:id="Party2">
+					<nc:PersonName>
+						<nc:PersonGivenName>Jane</nc:PersonGivenName>
+						<nc:PersonMiddleName>Q</nc:PersonMiddleName>
+						<nc:PersonSurName>Doe</nc:PersonSurName>
+					</nc:PersonName>
+					<ecf:PersonAugmentation>
+						<!-- The party type code id -->
+						<ecf:CaseParticipantRoleCode>527</ecf:CaseParticipantRoleCode>
+						<nc:ContactInformation>
+							<nc:ContactMailingAddress>
+								<nc:LocationStreet>
+									<nc:StreetFullText>123 Main St.</nc:StreetFullText>
+								</nc:LocationStreet>
+								<nc:LocationCityName>Anytown</nc:LocationCityName>
+								<nc:LocationState>
+									<nc:LocationStateName>IN</nc:LocationStateName>
+								</nc:LocationState>
+								<nc:LocationCountry>
+									<nc:LocationCountryName>US</nc:LocationCountryName>
+								</nc:LocationCountry>
+								<nc:LocationPostalCode>12345</nc:LocationPostalCode>
+							</nc:ContactMailingAddress>
+						</nc:ContactInformation>
+					</ecf:PersonAugmentation>
+					<common:PersonAugmentation>
+						<!-- The EFM party identifier -->
+						<common:PartyIdentification>
+							<nc:IdentificationID>d013bfc2-9f39-4c38-87b3-a05132555c79</nc:IdentificationID>
+						</common:PartyIdentification>
+						<common:FilerIdentification>
+							<nc:IdentificationID>23111</nc:IdentificationID>
+						</common:FilerIdentification>
+					</common:PersonAugmentation>
+				</nc:EntityPerson>
+			</ecf:CaseParty>
+			<!-- The EFM identifier for the case -->
+			<ecf:CaseTrackingID>
+				<nc:IdentificationID>e013bfc2-9f39-4c38-87b3-a05132555c79</nc:IdentificationID>
+			</ecf:CaseTrackingID>
+			<!-- The case type code id -->
+			<ecf:CaseTypeCode>528</ecf:CaseTypeCode>
+			<!-- The case number -->
+			<j:CaseNumberText>CV-2021-1000</j:CaseNumberText>
+		</ecf:CaseAugmentation>
+		<common:CaseAugmentation>
+			<!-- The case sub type code -->
+			<common:CaseSubTypeCode>688</common:CaseSubTypeCode>
+			<!-- The case status -->
+			<nc:StatusText>Open</nc:StatusText>
+			<!-- The date case was filed -->
+			<common:FiledDate>
+				<nc:Date>2020-10-01</nc:Date>
+			</common:FiledDate>
+				<!-- Partial waiver will only be in the message if the user making the getcase request has a partial waiver on the case. -->
+				<common:PartialWaiver>
+					<common:OutstandingBalance>
+						<nc:Amount>100.00</nc:Amount>
+					</common:OutstandingBalance>
+					<common:WaiverDecision>GRANT</common:WaiverDecision>
+					<common:WaiverPercentage>75</common:WaiverPercentage>
+					<common:WaiverStartDate>
+						<nc:DateTime>2022-05-24T14:20:47.0Z</nc:DateTime>
+					</common:WaiverStartDate>
+					<common:WaiverEndDate>
+						<nc:DateTime>2023-05-24T14:20:47.0Z</nc:DateTime>
+					</common:WaiverEndDate>
+				</common:PartialWaiver>
+		</common:CaseAugmentation>
+		<civil:CaseAugmentation xmlns:civil="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/civil" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/civil ../../../schema/civil.xsd">
+			<civil:AmountInControversy>
+				<nc:Amount>100</nc:Amount>
+			</civil:AmountInControversy>
+			<!-- Required by schema but unused -->
+			<civil:ReliefTypeCode/>
+			<!-- Required by schema but unused -->
+			<ecf:CauseOfActionCode/>
+		</civil:CaseAugmentation>
+	</nc:Case>
+</caseresponse:GetCaseResponseMessage>
+</wrapper:GetCaseResponse>

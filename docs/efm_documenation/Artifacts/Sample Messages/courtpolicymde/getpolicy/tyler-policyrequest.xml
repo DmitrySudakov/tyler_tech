@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policyrequest:GetPolicyRequestMessage xmlns="http://release.niem.gov/niem/niem-core/4.0/" xmlns:nc="http://release.niem.gov/niem/niem-core/4.0/" xmlns:j="http://release.niem.gov/niem/domains/jxdm/6.1/" xmlns:ecf="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/ecf" xmlns:policyrequest="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/policyrequest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://docs.oasis-open.org/legalxml-courtfiling/ns/v5.0/policyrequest ../../../schema/policyrequest.xsd">
+	<!-- The nc:DocumentIdentification element below is a Message Identifier (see section 6.2.5), in this circumstance, assigned by the FAMDE. -->
+	<nc:DocumentIdentification>
+		<nc:IdentificationID>1</nc:IdentificationID>
+		<nc:IdentificationCategoryDescriptionText>messageID</nc:IdentificationCategoryDescriptionText>
+		<!-- The originating MDE that provided the message identifier -->
+		<nc:IdentificationSourceText>FilingAssembly</nc:IdentificationSourceText>
+	</nc:DocumentIdentification>
+	<ecf:SendingMDELocationID>
+		<IdentificationID>https://eserviceprovider.com:8000</IdentificationID>
+	</ecf:SendingMDELocationID>
+	<ecf:ServiceInteractionProfileCode>urn:oasis:names:tc:legalxml-courtfiling:schema:xsd:WebServicesMessaging-5.0</ecf:ServiceInteractionProfileCode>
+	<j:CaseCourt>
+		<nc:OrganizationIdentification>
+			<!-- Identifier that maps to a node -->
+			<nc:IdentificationID>harris:dc</nc:IdentificationID>
+		</nc:OrganizationIdentification>
+	</j:CaseCourt>
+	<!-- DocumentPostDate is required and is the datetime for the request -->
+	<nc:DocumentPostDate>
+		<nc:DateTime>2021-05-24T14:20:47.0Z</nc:DateTime>
+	</nc:DocumentPostDate>
+	<!-- PolicyQueryCriteria is required by schema but unused -->
+	<policyrequest:PolicyQueryCriteria/>
+</policyrequest:GetPolicyRequestMessage>

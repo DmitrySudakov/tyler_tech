@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urn:CreatePaymentAccountRequest xmlns:urn="urn:tyler:efm:services" xmlns:urn1="urn:tyler:efm:services:schema:Common">
-            <urn1:PaymentAccount PaymentAccountID="?" FirmID="?" PaymentAccountTypeCode="6626">
-               <urn1:AccountName>My Waiver</urn1:AccountName>
-			   <urn1:PaymentAccountTypeCodeId>-135</urn1:PaymentAccountTypeCodeId>
-               <urn1:AccountToken xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            </urn1:PaymentAccount>
-         </urn:CreatePaymentAccountRequest>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<CodeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://docs.oasis-open.org/codelist/ns/genericode/1.0/">
+  <Identification xmlns="">
+    <ShortName>ProcedureRemedyCode</ShortName>
+    <LongName>ProcedureRemedyCode</LongName>
+    <Version>5DD8F1A1B2428151279E6FF49881A8FF4F1E9F4AD156C0F4F699EC961CD7FC1EE69BCD389879F9BD62A308BE9C16AACE205C265A52E597B2CCB6DCB0B8882B2E</Version>
+    <CanonicalUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:ProcedureRemedyCode</CanonicalUri>
+    <CanonicalVersionUri>urn:oasis:names:tc:legalxml-courtfiling:codelist:gc:ProcedureRemedyCode-1.0</CanonicalVersionUri>
+    <Agency>
+      <LongName>OASIS LegalXML Electronic Court Filing Technical Committee</LongName>
+    </Agency>
+  </Identification>
+  <ColumnSet xmlns="">
+    <Column Id="code" Use="required">
+      <ShortName>Code</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="name" Use="optional">
+      <ShortName>Name</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="casecategory" Use="optional">
+      <ShortName>Case Category</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Column Id="efspcode" Use="optional">
+      <ShortName>EFSPCode</ShortName>
+      <Data Type="normalizedString" Lang="en" />
+    </Column>
+    <Key Id="codeKey">
+      <ShortName>CodeKey</ShortName>
+      <ColumnRef Ref="code" />
+    </Key>
+  </ColumnSet>
+  <SimpleCodeList xmlns="">
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>667</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Appeal</SimpleValue>
+      </Value>
+      <Value ColumnRef="casecategory">
+        <SimpleValue>7</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>668</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Class Action</SimpleValue>
+      </Value>
+      <Value ColumnRef="casecategory">
+        <SimpleValue>7</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+    <Row>
+      <Value ColumnRef="code">
+        <SimpleValue>669</SimpleValue>
+      </Value>
+      <Value ColumnRef="name">
+        <SimpleValue>Garnishment</SimpleValue>
+      </Value>
+      <Value ColumnRef="casecategory">
+        <SimpleValue>7</SimpleValue>
+      </Value>
+      <Value ColumnRef="efspcode">
+        <SimpleValue />
+      </Value>
+    </Row>
+  </SimpleCodeList>
+</CodeList>
