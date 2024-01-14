@@ -4,5 +4,5 @@ namespace TylerTech.Core.Integrations.EfmClient;
 
 public interface IEfmClient
 {
-    Task<AuthenticateResponse> AuthenticateAsync(AuthenticateRequest request);
+    Task<AuthenticatedUser> AuthenticateAsync(string email, string password);
 }
