@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TylerTech.Core.Integrations.EfmClient.Messages;
 
 namespace TylerTech.Core.Integrations.EfmClient;
 
 public interface IEfmClient
 {
+    Task<AuthenticateResponse> AuthenticateAsync(AuthenticateRequest request);
 }
